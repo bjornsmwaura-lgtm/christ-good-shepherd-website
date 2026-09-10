@@ -1,0 +1,166 @@
+/* ===== Base Navbar ===== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.navbar__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.85rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* ===== Logo ===== */
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.navbar__logo-img {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.navbar__logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.navbar__logo-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #2c5f7a;
+}
+
+.navbar__logo-subtitle {
+  font-size: 0.75rem;
+  color: #6b7c85;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ===== Navigation Links ===== */
+.navbar__nav {
+  display: flex;
+  align-items: center;
+}
+
+.navbar__list {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar__link {
+  display: inline-block;
+  padding: 0.5rem 0.85rem;
+  text-decoration: none;
+  color: #33474f;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 6px;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.navbar__link:hover {
+  color: #2c5f7a;
+  background-color: #eef6fa;
+}
+
+.navbar__link--active {
+  color: #2c5f7a;
+  font-weight: 600;
+}
+
+/* ===== Donate Button ===== */
+.navbar__donate {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0.55rem 1.3rem;
+  background: linear-gradient(135deg, #c9a24a, #b8892f);
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 999px;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.navbar__donate:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(201, 162, 74, 0.35);
+}
+
+/* ===== Hamburger (hidden on desktop) ===== */
+.navbar__toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #2c5f7a;
+  cursor: pointer;
+  padding: 0.35rem;
+}
+
+/* ===== Mobile Styles ===== */
+@media (max-width: 900px) {
+  .navbar__toggle {
+    display: block;
+  }
+
+  .navbar__nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    flex-direction: column;
+    align-items: stretch;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  }
+
+  .navbar__nav--open {
+    max-height: 500px;
+  }
+
+  .navbar__list {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0.75rem 1rem 1.25rem;
+    gap: 0.25rem;
+  }
+
+  .navbar__link {
+    display: block;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+  }
+
+  .navbar__donate {
+    display: block;
+    text-align: center;
+    margin: 0.75rem 0 0;
+    padding: 0.75rem 1rem;
+  }
+}
