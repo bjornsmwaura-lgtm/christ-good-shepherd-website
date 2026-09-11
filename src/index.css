@@ -39,3 +39,8 @@ a {
 button {
   font-family: inherit;
 }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px; /* offsets anchor scroll below sticky navbar */
+}

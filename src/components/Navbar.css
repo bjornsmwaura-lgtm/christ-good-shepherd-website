@@ -164,3 +164,142 @@
     padding: 0.75rem 1rem;
   }
 }
+/* ===== Programs Dropdown ===== */
+.navbar__item--has-dropdown {
+  position: relative;
+}
+
+.navbar__link--dropdown {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  /* inherits .navbar__link styles */
+}
+
+.navbar__chevron {
+  font-size: 0.65rem;
+  transition: transform 0.25s ease;
+}
+
+.navbar__chevron--open {
+  transform: rotate(180deg);
+}
+
+/* Dropdown panel */
+.navbar__dropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 50%;
+  transform: translateX(-50%) translateY(-6px);
+  min-width: 280px;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 0.6rem;
+  list-style: none;
+  margin: 0;
+  box-shadow: 0 12px 32px rgba(44, 95, 122, 0.15);
+  border: 1px solid #eef6fa;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 100;
+}
+
+.navbar__dropdown--open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Small triangle pointer */
+.navbar__dropdown::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 12px;
+  height: 12px;
+  background: #ffffff;
+  border-left: 1px solid #eef6fa;
+  border-top: 1px solid #eef6fa;
+}
+
+.navbar__dropdown-link {
+  display: block;
+  padding: 0.65rem 1rem;
+  color: #33474f;
+  text-decoration: none;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  line-height: 1.4;
+}
+
+.navbar__dropdown-link:hover {
+  background-color: #eef6fa;
+  color: #2c5f7a;
+}
+
+.navbar__dropdown-link--all {
+  font-weight: 600;
+  color: #c9a24a;
+  border-bottom: 1px solid #eef6fa;
+  margin-bottom: 0.35rem;
+  border-radius: 8px 8px 0 0;
+}
+
+.navbar__dropdown-link--all:hover {
+  background-color: #fdf6e3;
+  color: #b8892f;
+}
+
+/* ===== Mobile: dropdown becomes inline ===== */
+@media (max-width: 900px) {
+  .navbar__item--has-dropdown {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .navbar__link--dropdown {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+  }
+
+  .navbar__dropdown {
+    position: static;
+    transform: none;
+    opacity: 1;
+    pointer-events: auto;
+    box-shadow: none;
+    border: none;
+    background: #f6fafc;
+    margin-top: 0.25rem;
+    border-radius: 8px;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+  }
+
+  .navbar__dropdown--open {
+    max-height: 600px;
+    padding: 0.5rem;
+  }
+
+  .navbar__dropdown::before {
+    display: none;
+  }
+
+  .navbar__dropdown-link {
+    font-size: 0.92rem;
+    padding: 0.55rem 0.85rem;
+  }
+}
