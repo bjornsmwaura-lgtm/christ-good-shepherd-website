@@ -52,6 +52,7 @@ function Navbar() {
     { path: '/about', label: 'About Us' },
     { path: '/programs', label: 'Programs', hasDropdown: true },
     { path: '/admissions', label: 'Admissions' },
+    { path: '/get-involved', label: 'Get Involved' },
     { path: '/gallery', label: 'Gallery' },
     { path: '/contact', label: 'Contact' },
   ];
