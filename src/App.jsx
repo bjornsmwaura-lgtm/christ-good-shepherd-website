@@ -10,6 +10,7 @@ import Gallery from './pages/Gallery';
 import GetInvolved from './pages/GetInvolved';
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
+import ScrollToTopButton from './components/ScrollToTopButton';
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
         </main>
         <Footer />
       </div>
+      <ScrollToTopButton />
     </BrowserRouter>
   );
 }
