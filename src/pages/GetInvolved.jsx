@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import {
   FaHandsHelping,
   FaGraduationCap,
@@ -38,6 +38,20 @@ function GetInvolved() {
     // Placeholder — later wire to EmailJS / Formspree
     setSubmitted(true);
   };
+
+  const { hash } = useLocation();
+
+useEffect(() => {
+  if (hash) {
+    const id = hash.replace('#', '');
+    const el = document.getElementById(id);
+    if (el) {
+      setTimeout(() => {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
+  }
+}, [hash]);
 
   // ===== Volunteer content =====
   const volunteerRoles = [
@@ -212,7 +226,7 @@ function GetInvolved() {
             <span className="section__eyebrow">Volunteer</span>
             <h2 className="section__title">Give your time. Change a life.</h2>
             <p className="section__subtitle">
-              Volunteers are an essential part of our community — offering
+              Volunteers are an essential part of our community, offering
               presence, encouragement, skills, and hope to those in recovery.
             </p>
           </div>
@@ -272,7 +286,7 @@ function GetInvolved() {
             <h2 className="section__title">Learn. Serve. Grow.</h2>
             <p className="section__subtitle">
               Our internship programme offers structured, supervised exposure
-              to holistic rehabilitation — ideal for students and recent
+              to holistic rehabilitation ideal for students and recent
               graduates preparing for professional practice.
             </p>
           </div>

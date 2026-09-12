@@ -44,3 +44,102 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 90px; /* offsets anchor scroll below sticky navbar */
 }
+
+/* ===== Global Mobile Polish ===== */
+
+/* Prevent horizontal scroll on small screens */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Images never overflow */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Comfortable tap targets for buttons and links */
+@media (max-width: 900px) {
+  button,
+  a.btn,
+  .btn {
+    min-height: 44px;
+  }
+
+  /* Section padding — tighter on mobile */
+  .section {
+    padding: 3rem 1.15rem;
+  }
+
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Slightly smaller section titles */
+  .section__title {
+    font-size: clamp(1.5rem, 5vw, 1.9rem);
+    line-height: 1.25;
+  }
+
+  .section__subtitle {
+    font-size: 0.98rem;
+  }
+
+  .section__eyebrow {
+    font-size: 0.75rem;
+  }
+
+  /* Page hero adjustments */
+  .page-hero {
+    min-height: 40vh;
+    padding: 4rem 1.25rem 3rem;
+  }
+
+  .page-hero__title {
+    font-size: clamp(1.6rem, 6vw, 2.2rem);
+  }
+
+  .page-hero__subtitle {
+    font-size: 0.95rem;
+  }
+
+  /* Primary buttons full-width on mobile */
+  .btn {
+    padding: 0.85rem 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  /* Form inputs bigger tap targets */
+  .form-input {
+    font-size: 1rem; /* prevents iOS zoom on focus */
+    padding: 0.9rem 1rem;
+  }
+
+  /* Ensure modals fit */
+  .lightbox {
+    padding: 0.75rem;
+  }
+
+  .lightbox__content {
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+}
+
+/* Very narrow screens (phones < 400px) */
+@media (max-width: 400px) {
+  .section {
+    padding: 2.5rem 1rem;
+  }
+
+  .section__title {
+    font-size: 1.4rem;
+  }
+
+  .btn {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9rem;
+  }
+}

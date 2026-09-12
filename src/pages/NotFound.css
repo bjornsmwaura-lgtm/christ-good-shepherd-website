@@ -1,0 +1,74 @@
+.notfound {
+  min-height: 75vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1.5rem;
+  background: linear-gradient(135deg, #2c5f7a, #1f4a5f);
+  color: #fff;
+  text-align: center;
+}
+
+.notfound__inner {
+  max-width: 620px;
+}
+
+.notfound__code {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(5rem, 14vw, 9rem);
+  font-weight: 700;
+  color: #c9a24a;
+  line-height: 1;
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+}
+
+.notfound__title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.6rem, 3.5vw, 2.25rem);
+  color: #fff;
+  margin: 0 0 1rem;
+}
+
+.notfound__text {
+  font-size: 1.05rem;
+  color: #c9dbe4;
+  line-height: 1.7;
+  margin: 0 0 1.5rem;
+}
+
+.notfound__verse {
+  font-style: italic;
+  font-family: 'Playfair Display', Georgia, serif;
+  color: #c9a24a;
+  font-size: 0.98rem;
+  margin: 0 0 2.5rem;
+}
+
+.notfound__buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.notfound .btn--outline-light {
+  border-color: #fff;
+  color: #fff;
+}
+
+.notfound .btn--outline-light:hover {
+  background: #fff;
+  color: #2c5f7a;
+}
+
+@media (max-width: 500px) {
+  .notfound__buttons {
+    flex-direction: column;
+  }
+
+  .notfound__buttons .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

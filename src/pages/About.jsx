@@ -10,7 +10,7 @@ import {
   FaArrowRight,
 } from 'react-icons/fa';
 import aboutHero from '../assets/images/nature1.jpg';
-import leaderFr from '../assets/images/nature2.jpg';
+import leaderFr from '../assets/images/director.jpeg';
 import leaderJohn from '../assets/images/nature3.jpg';
 import facilityImg from '../assets/images/nature4.jpg';
 import './About.css';
@@ -229,7 +229,7 @@ function About() {
               </div>
               <h3 className="leader-card__name">Rev. Fr. Stephen Gitonga</h3>
               <p className="leader-card__role">
-                Spiritual & Clinical Counsellor · Health Coordinator, Archdiocese of Nyeri
+                Director, Spiritual & Clinical Counsellor · Health Coordinator, Archdiocese of Nyeri
               </p>
               <p className="leader-card__bio">
                 Fr. Gitonga's leadership supports the integration of spiritual

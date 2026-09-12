@@ -42,7 +42,7 @@ function Footer() {
             <li><Link to="/about" className="footer__link">About Us</Link></li>
             <li><Link to="/programs" className="footer__link">Programs</Link></li>
             <li><Link to="/admissions" className="footer__link">Admissions</Link></li>
-            <li><Link to="/gallery" className="footer__link">Gallery</Link></li>
+           <li><Link to="/get-involved" className="footer__link">Get Involved</Link></li>
             <li><Link to="/donate" className="footer__link">Donate</Link></li>
           </ul>
         </div>
@@ -122,7 +122,7 @@ function Footer() {
           © {currentYear} Christ the Good Shepherd Wellness Centre. All rights reserved.
         </p>
         <p className="footer__tagline">
-          Built with faith, hope, and love.
+          Designed and developed by Bjornsmwaura Productions
         </p>
       </div>
     </footer>

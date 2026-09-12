@@ -119,7 +119,7 @@ function Programs() {
           <h1 className="page-hero__title">Holistic Care for Lasting Recovery</h1>
           <p className="page-hero__subtitle">
             A structured residential programme addressing the mind, body, and
-            spirit — grounded in faith and delivered with dignity.
+            spirit grounded in faith and delivered with dignity.
           </p>
         </div>
       </section>
@@ -130,12 +130,12 @@ function Programs() {
           <div className="section__header">
             <span className="section__eyebrow">A Comprehensive Approach</span>
             <h2 className="section__title">
-              More than treatment — a journey of restoration
+              More than treatment. A journey of restoration
             </h2>
             <p className="section__subtitle">
               We believe that recovery requires more than medical intervention
               alone. Our programmes address every dimension of a person's life
-              — clinical, psychological, social, emotional, and spiritual.
+              clinical, psychological, social, emotional, and spiritual.
             </p>
           </div>
 
@@ -427,7 +427,7 @@ function Programs() {
                 <span className="cost__label">Monthly Programme Fee</span>
                 <div className="cost__amount">KSh 60,000</div>
                 <p className="cost__note">
-                  Per client, per month — all-inclusive
+                  Per client, per month all-inclusive
                 </p>
               </div>
 

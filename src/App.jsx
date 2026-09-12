@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -8,11 +9,13 @@ import Admissions from './pages/Admissions';
 import Gallery from './pages/Gallery';
 import GetInvolved from './pages/GetInvolved';
 import Contact from './pages/Contact';
+import NotFound from './pages/NotFound';
 
 
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
         <Navbar />
         <main style={{ flex: 1 }}>
@@ -25,6 +28,7 @@ function App() {
             <Route path="/get-involved" element={<GetInvolved />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/donate" element={<h1 style={{ padding: '4rem', textAlign: 'center' }}>Donate Page</h1>} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
         <Footer />

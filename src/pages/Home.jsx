@@ -107,7 +107,7 @@ function Home() {
             <br />— Psalm 23:2–3
           </p>
           <p className="hero__subtitle">
-            Restoring hope. Renewing minds. Rebuilding lives — through Christ.
+            "Recovery in Dignity": Restoring hope. Renewing minds. Rebuilding lives through Christ.
           </p>
           <div className="hero__buttons">
             <Link to="/admissions" className="btn btn--primary">
@@ -151,7 +151,7 @@ function Home() {
 
       {/* Message */}
       <div className="director__message">
-        <span className="section__eyebrow">A Welcome from Our Director</span>
+        <span className="section__eyebrow">A Welcome Message from Our Director</span>
         <h2 className="section__title">
           "You are not alone on this journey."
         </h2>
@@ -163,8 +163,8 @@ function Home() {
         </p>
         <p>
           We believe that recovery is about more than simply stopping the use
-          of alcohol or drugs. It is about restoring the whole person — mind,
-          body, and spirit — and helping each individual rediscover their
+          of alcohol or drugs. It is about restoring the whole person mind,
+          body, and spirit and helping each individual rediscover their
           God-given worth and purpose. That is why we say: <strong>Recovery in
           Dignity.</strong>
         </p>
@@ -177,7 +177,7 @@ function Home() {
         <div className="director__signature">
           <p className="director__name">Rev. Fr. Stephen Gitonga</p>
           <p className="director__role">
-            Spiritual & Clinical Counsellor · Health Coordinator,
+            Director, Spiritual & Clinical Counsellor. Health Coordinator,
             Catholic Archdiocese of Nyeri
           </p>
         </div>
@@ -194,7 +194,7 @@ function Home() {
       <p className="motto-banner__motto">"Recovery in Dignity"</p>
       <p className="motto-banner__text">
         Every person who comes to us deserves to be treated with compassion,
-        respect, and inherent worth — regardless of their past, their
+        respect, and inherent worth regardless of their past, their
         struggles, or their circumstances. We walk with each individual on
         their journey toward healing, wholeness, and a renewed life.
       </p>
@@ -247,7 +247,7 @@ function Home() {
             <span className="section__eyebrow">What We Offer</span>
             <h2 className="section__title">Our Programs</h2>
             <p className="section__subtitle">
-              Every program is designed to meet people where they are — and
+              Every program is designed to meet people where they are and
               guide them toward lasting wholeness in Christ.
             </p>
           </div>
@@ -295,7 +295,7 @@ function Home() {
         <div className="container">
           <div className="stats__grid">
             <div className="stat">
-              <div className="stat__number">100+</div>
+              <div className="stat__number">500+</div>
               <div className="stat__label">Lives Touched</div>
             </div>
             <div className="stat">
@@ -320,7 +320,7 @@ function Home() {
           <div className="final-cta__inner">
             <h2 className="final-cta__title">Be Part of the Story</h2>
             <p className="final-cta__text">
-              Whether you need help or want to give it — there's a place for you here.
+              Whether you need help or want to give it, there's a place for you here.
             </p>
             <div className="final-cta__buttons">
               <Link to="/donate" className="btn btn--primary">

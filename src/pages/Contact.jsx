@@ -72,7 +72,7 @@ function Contact() {
           <h1 className="page-hero__title">Get in Touch</h1>
           <p className="page-hero__subtitle">
             Whether you're seeking help, making a referral, or offering
-            support — we would be glad to hear from you.
+            support, we would be glad to hear from you.
           </p>
         </div>
       </section>
@@ -94,7 +94,7 @@ function Contact() {
                 <FaPhone />
               </div>
               <h3 className="contact-card__title">Call Us</h3>
-              <p className="contact-card__value">0791 770 653</p>
+              <p className="contact-card__value">+254 791 770 653</p>
               <span className="contact-card__action">Tap to call →</span>
             </a>
 
@@ -162,7 +162,7 @@ function Contact() {
                     respond to you shortly.
                   </p>
                   <p className="contact-form__success-verse">
-                    "The Lord is near to all who call on Him." — Psalm 145:18
+                    "The Lord is near to all who call on Him." — Psalm 145:18 -
                   </p>
                   <button
                     className="btn btn--primary"

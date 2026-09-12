@@ -7,25 +7,39 @@ import './Navbar.css';
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [programsOpen, setProgramsOpen] = useState(false);
-  const dropdownRef = useRef(null);
+  const [involvedOpen, setInvolvedOpen] = useState(false);
+  const programsRef = useRef(null);
+  const involvedRef = useRef(null);
   const location = useLocation();
 
-  const closeMenu = () => {
+  const closeAllMenus = () => {
     setMenuOpen(false);
     setProgramsOpen(false);
+    setInvolvedOpen(false);
   };
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
+
   const togglePrograms = (e) => {
     e.preventDefault();
     setProgramsOpen(!programsOpen);
+    setInvolvedOpen(false);
   };
 
-  // Close dropdown when clicking outside
+  const toggleInvolved = (e) => {
+    e.preventDefault();
+    setInvolvedOpen(!involvedOpen);
+    setProgramsOpen(false);
+  };
+
+  // Close dropdowns when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      if (programsRef.current && !programsRef.current.contains(event.target)) {
         setProgramsOpen(false);
+      }
+      if (involvedRef.current && !involvedRef.current.contains(event.target)) {
+        setInvolvedOpen(false);
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
@@ -34,7 +48,7 @@ function Navbar() {
 
   // Close menus on route change
   useEffect(() => {
-    closeMenu();
+    closeAllMenus();
   }, [location.pathname]);
 
   const programLinks = [
@@ -47,21 +61,17 @@ function Navbar() {
     { hash: 'cost', label: 'Cost & SHA Coverage' },
   ];
 
-  const navLinks = [
-    { path: '/', label: 'Home' },
-    { path: '/about', label: 'About Us' },
-    { path: '/programs', label: 'Programs', hasDropdown: true },
-    { path: '/admissions', label: 'Admissions' },
-    { path: '/get-involved', label: 'Get Involved' },
-    { path: '/gallery', label: 'Gallery' },
-    { path: '/contact', label: 'Contact' },
+  const involvedLinks = [
+    { hash: '', label: 'Overview' },
+    { hash: 'volunteer', label: 'Volunteer' },
+    { hash: 'internship', label: 'Internship' },
   ];
 
   return (
     <header className="navbar">
       <div className="navbar__container">
         {/* Logo */}
-        <Link to="/" className="navbar__logo" onClick={closeMenu}>
+        <Link to="/" className="navbar__logo" onClick={closeAllMenus}>
           <img
             src={logo}
             alt="Christ the Good Shepherd Wellness Centre logo"
@@ -86,67 +96,152 @@ function Navbar() {
         {/* Nav */}
         <nav className={`navbar__nav ${menuOpen ? 'navbar__nav--open' : ''}`}>
           <ul className="navbar__list">
-            {navLinks.map((link) => (
-              <li
-                key={link.path}
-                className={`navbar__item ${link.hasDropdown ? 'navbar__item--has-dropdown' : ''}`}
-                ref={link.hasDropdown ? dropdownRef : null}
+            {/* Home */}
+            <li className="navbar__item">
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  `navbar__link ${isActive ? 'navbar__link--active' : ''}`
+                }
+                onClick={closeAllMenus}
               >
-                {link.hasDropdown ? (
-                  <>
-                    <button
-                      className={`navbar__link navbar__link--dropdown ${
-                        location.pathname === link.path ? 'navbar__link--active' : ''
+                Home
+              </NavLink>
+            </li>
+
+            {/* About */}
+            <li className="navbar__item">
+              <NavLink
+                to="/about"
+                className={({ isActive }) =>
+                  `navbar__link ${isActive ? 'navbar__link--active' : ''}`
+                }
+                onClick={closeAllMenus}
+              >
+                About Us
+              </NavLink>
+            </li>
+
+            {/* Programs dropdown */}
+            <li
+              className="navbar__item navbar__item--has-dropdown"
+              ref={programsRef}
+            >
+              <button
+                className={`navbar__link navbar__link--dropdown ${
+                  location.pathname === '/programs' ? 'navbar__link--active' : ''
+                }`}
+                onClick={togglePrograms}
+                aria-expanded={programsOpen}
+              >
+                Programs
+                <FaChevronDown
+                  className={`navbar__chevron ${
+                    programsOpen ? 'navbar__chevron--open' : ''
+                  }`}
+                />
+              </button>
+
+              <ul
+                className={`navbar__dropdown ${
+                  programsOpen ? 'navbar__dropdown--open' : ''
+                }`}
+              >
+                <li>
+                  <Link
+                    to="/programs"
+                    className="navbar__dropdown-link navbar__dropdown-link--all"
+                    onClick={closeAllMenus}
+                  >
+                    All Programmes
+                  </Link>
+                </li>
+                {programLinks.map((program) => (
+                  <li key={program.hash}>
+                    <Link
+                      to={`/programs#${program.hash}`}
+                      className="navbar__dropdown-link"
+                      onClick={closeAllMenus}
+                    >
+                      {program.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </li>
+
+            {/* Admissions */}
+            <li className="navbar__item">
+              <NavLink
+                to="/admissions"
+                className={({ isActive }) =>
+                  `navbar__link ${isActive ? 'navbar__link--active' : ''}`
+                }
+                onClick={closeAllMenus}
+              >
+                Admissions
+              </NavLink>
+            </li>
+
+            {/* Get Involved dropdown */}
+            <li
+              className="navbar__item navbar__item--has-dropdown"
+              ref={involvedRef}
+            >
+              <button
+                className={`navbar__link navbar__link--dropdown ${
+                  location.pathname === '/get-involved'
+                    ? 'navbar__link--active'
+                    : ''
+                }`}
+                onClick={toggleInvolved}
+                aria-expanded={involvedOpen}
+              >
+                Get Involved
+                <FaChevronDown
+                  className={`navbar__chevron ${
+                    involvedOpen ? 'navbar__chevron--open' : ''
+                  }`}
+                />
+              </button>
+
+              <ul
+                className={`navbar__dropdown ${
+                  involvedOpen ? 'navbar__dropdown--open' : ''
+                }`}
+              >
+                {involvedLinks.map((link) => (
+                  <li key={link.hash || 'overview'}>
+                    <Link
+                      to={`/get-involved${link.hash ? `#${link.hash}` : ''}`}
+                      className={`navbar__dropdown-link ${
+                        link.hash === '' ? 'navbar__dropdown-link--all' : ''
                       }`}
-                      onClick={togglePrograms}
-                      aria-expanded={programsOpen}
+                      onClick={closeAllMenus}
                     >
                       {link.label}
-                      <FaChevronDown
-                        className={`navbar__chevron ${programsOpen ? 'navbar__chevron--open' : ''}`}
-                      />
-                    </button>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </li>
 
-                    <ul
-                      className={`navbar__dropdown ${programsOpen ? 'navbar__dropdown--open' : ''}`}
-                    >
-                      <li>
-                        <Link
-                          to="/programs"
-                          className="navbar__dropdown-link navbar__dropdown-link--all"
-                          onClick={closeMenu}
-                        >
-                          All Programmes
-                        </Link>
-                      </li>
-                      {programLinks.map((program) => (
-                        <li key={program.hash}>
-                          <Link
-                            to={`/programs#${program.hash}`}
-                            className="navbar__dropdown-link"
-                            onClick={closeMenu}
-                          >
-                            {program.label}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </>
-                ) : (
-                  <NavLink
-                    to={link.path}
-                    className={({ isActive }) =>
-                      `navbar__link ${isActive ? 'navbar__link--active' : ''}`
-                    }
-                    onClick={closeMenu}
-                  >
-                    {link.label}
-                  </NavLink>
-                )}
-              </li>
-            ))}
+            {/* Contact */}
             <li className="navbar__item">
-              <Link to="/donate" className="navbar__donate" onClick={closeMenu}>
+              <NavLink
+                to="/contact"
+                className={({ isActive }) =>
+                  `navbar__link ${isActive ? 'navbar__link--active' : ''}`
+                }
+                onClick={closeAllMenus}
+              >
+                Contact
+              </NavLink>
+            </li>
+
+            {/* Donate */}
+            <li className="navbar__item">
+              <Link to="/donate" className="navbar__donate" onClick={closeAllMenus}>
                 Donate
               </Link>
             </li>

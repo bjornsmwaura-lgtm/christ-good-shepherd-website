@@ -113,7 +113,7 @@ function Admissions() {
           <h1 className="page-hero__title">Begin the Journey</h1>
           <p className="page-hero__subtitle">
             Taking the first step is often the hardest. We are here to walk
-            with you — with compassion, dignity, and hope.
+            with you with compassion, dignity, and hope.
           </p>
         </div>
       </section>
@@ -178,7 +178,7 @@ function Admissions() {
                 ))}
               </ul>
               <p className="requirements__card-note">
-                Please don't worry if you're missing something — our team
+                Please don't worry if you're missing something. Our team
                 will guide you through the details during the admission
                 process.
               </p>
@@ -194,7 +194,7 @@ function Admissions() {
             <span className="section__eyebrow">Step by Step</span>
             <h2 className="section__title">The Admission Process</h2>
             <p className="section__subtitle">
-              From the first phone call to aftercare support — here is what
+              From the first phone call to aftercare support, here is what
               the journey looks like.
             </p>
           </div>
@@ -256,7 +256,7 @@ function Admissions() {
         <h2 className="section__title">Admission & Referral Form</h2>
         <p>
           Download our admission and referral form to prepare ahead of time.
-          You can print it, fill it in, and bring it with you — or email the
+          You can print it, fill it in, and bring it with you or email the
           completed form back to us before your visit.
         </p>
         <ul className="download-form__features">
@@ -312,7 +312,7 @@ function Admissions() {
               <h2 className="section__title">Make an Inquiry</h2>
               <p>
                 Fill in the form and our team will reach out to you
-                confidentially. You can also call or WhatsApp us directly —
+                confidentially. You can also call or WhatsApp us directly,
                 whichever feels easier.
               </p>
 
@@ -363,7 +363,7 @@ function Admissions() {
                     contact you confidentially and as soon as possible.
                   </p>
                   <p className="inquiry__success-verse">
-                    "The Lord is close to the brokenhearted." — Psalm 34:18
+                    "The Lord is close to the brokenhearted." — Psalm 34:18 -
                   </p>
                   <button
                     className="btn btn--primary"
