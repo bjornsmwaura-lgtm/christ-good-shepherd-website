@@ -8,6 +8,7 @@ import Programs from './pages/Programs';
 import Admissions from './pages/Admissions';
 import Gallery from './pages/Gallery';
 import GetInvolved from './pages/GetInvolved';
+import Donate from './pages/Donate';
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
 import ScrollToTopButton from './components/ScrollToTopButton';
@@ -27,8 +28,8 @@ function App() {
             <Route path="/admissions" element={<Admissions />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/get-involved" element={<GetInvolved />} />
+            <Route path="/donate" element={<Donate />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/donate" element={<h1 style={{ padding: '4rem', textAlign: 'center' }}>Donate Page</h1>} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

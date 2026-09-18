@@ -1,0 +1,582 @@
+/* ===== Page Hero ===== */
+.page-hero--donate {
+  background: linear-gradient(135deg, #2c5f7a, #1f4a5f);
+}
+
+/* ===== Why Give ===== */
+.why-give {
+  background: #ffffff;
+}
+
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.impact-card {
+  background: linear-gradient(160deg, #f6fafc, #eef6fa);
+  padding: 2rem 1.75rem;
+  border-radius: 14px;
+  border: 1px solid #dceaf1;
+  border-top: 4px solid #c9a24a;
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.impact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(44, 95, 122, 0.12);
+}
+
+.impact-card__icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 1.25rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2c5f7a, #1f4a5f);
+  color: #c9a24a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.impact-card__title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.15rem;
+  color: #2c5f7a;
+  margin: 0 0 0.6rem;
+}
+
+.impact-card__text {
+  color: #6b7c85;
+  font-size: 0.93rem;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ===== Ways to Give ===== */
+.ways-to-give {
+  background: #fbfcfd;
+}
+
+.give-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.75rem;
+  align-items: start;
+}
+
+.give-card {
+  background: #ffffff;
+  padding: 2.25rem 1.9rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(44, 95, 122, 0.08);
+  border-top: 5px solid #2c5f7a;
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.give-card--primary {
+  border-top-color: #00A651;
+  background: linear-gradient(180deg, #ffffff, #f0faf3);
+  box-shadow: 0 12px 32px rgba(0, 166, 81, 0.18);
+}
+
+.give-card__badge {
+  position: absolute;
+  top: -12px;
+  right: 1.5rem;
+  background: linear-gradient(135deg, #00A651, #008C42);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(0, 166, 81, 0.35);
+}
+
+.give-card__icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: whitesmoke;
+  color: #2c5f7a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  margin-bottom: 1.25rem;
+}
+
+.give-card--primary .give-card__icon {
+  background: whitesmoke;
+  color: #fff;
+}
+
+.give-card__title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.3rem;
+  color: #2c5f7a;
+  margin: 0 0 0.6rem;
+}
+
+.give-card__desc {
+  color: #6b7c85;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin: 0 0 1.5rem;
+}
+
+/* M-Pesa details */
+.give-card__details {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.give-detail {
+  padding: 0.85rem 1rem;
+  background: #fbfcfd;
+  border-radius: 10px;
+  border: 1px solid #e0ebf1;
+}
+
+.give-detail__label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #6b7c85;
+  margin-bottom: 0.35rem;
+}
+
+.give-detail__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.give-detail__value {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #2c5f7a;
+  letter-spacing: 0.05em;
+  word-break: break-all;
+}
+
+.give-detail__value--name {
+  font-size: 0.98rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  display: block;
+  word-break: normal;
+}
+
+.give-card--primary .give-detail__copy {
+  border-color: #00A651;
+  color: #008C42;
+}
+
+.give-card--primary .give-detail__copy:hover {
+  background: #00A651;
+  color: #fff;
+}
+.give-card__note {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  font-size: 0.82rem;
+  color: #6b7c85;
+  line-height: 1.5;
+  font-style: italic;
+  padding-top: 1rem;
+  border-top: 1px dashed #e0ebf1;
+  margin: 0;
+}
+
+.give-card__note svg {
+  color: #c9a24a;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+/* Bank transfer */
+.give-card__contact {
+  margin-top: auto;
+}
+
+.give-card__contact p {
+  color: #6b7c85;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  margin: 0 0 1.25rem;
+}
+
+/* In-kind list */
+.in-kind-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.in-kind-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  color: #33474f;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.in-kind-list__icon {
+  color: #c9a24a;
+  font-size: 0.85rem;
+  margin-top: 0.3rem;
+  flex-shrink: 0;
+}
+
+/* ===== Sponsor a Client ===== */
+.sponsor {
+  background: #ffffff;
+}
+
+.sponsor__inner {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.sponsor__title {
+  color: #2c5f7a;
+}
+
+.sponsor__text {
+  color: #4a5b63;
+  line-height: 1.8;
+  font-size: 1rem;
+  margin: 0 0 1.1rem;
+}
+
+.sponsor__text strong {
+  color: #c9a24a;
+}
+
+.sponsor__buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.75rem;
+}
+
+.sponsor__card {
+  background: linear-gradient(160deg, #2c5f7a, #1f4a5f);
+  color: #fff;
+  padding: 2.5rem 2rem;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 16px 40px rgba(44, 95, 122, 0.25);
+  border-top: 6px solid #c9a24a;
+}
+
+.sponsor__card-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #c9a24a;
+  margin-bottom: 0.85rem;
+}
+
+.sponsor__card-price {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+
+.sponsor__card-period {
+  font-size: 0.9rem;
+  color: #c9dbe4;
+  font-style: italic;
+  margin-bottom: 1.75rem;
+}
+
+.sponsor__card-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  text-align: left;
+}
+
+.sponsor__card-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.9rem;
+  color: #dbe8ef;
+}
+
+.sponsor__card-list svg {
+  color: #c9a24a;
+  flex-shrink: 0;
+}
+
+/* ===== Other Ways ===== */
+.other-ways {
+  background: #fbfcfd;
+}
+
+.other-ways__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.other-way-card {
+  background: #ffffff;
+  padding: 2rem 1.75rem;
+  border-radius: 14px;
+  border: 1px solid #dceaf1;
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.other-way-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 26px rgba(44, 95, 122, 0.1);
+  border-color: #c9a24a;
+}
+
+.other-way-card__icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 1.15rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #c9a24a, #b8892f);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+}
+
+.other-way-card h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.15rem;
+  color: #2c5f7a;
+  margin: 0 0 0.65rem;
+}
+
+.other-way-card p {
+  color: #6b7c85;
+  font-size: 0.93rem;
+  line-height: 1.65;
+  margin: 0 0 0.85rem;
+}
+
+.other-way-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #c9a24a;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: gap 0.2s ease;
+}
+
+.other-way-card__link:hover {
+  gap: 0.65rem;
+}
+
+/* ===== Transparency ===== */
+.transparency {
+  background: #ffffff;
+}
+
+.transparency__inner {
+  max-width: 780px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 3rem 2rem;
+  background: linear-gradient(160deg, #eef6fa, #dfeef5);
+  border-radius: 20px;
+  border-left: 6px solid #2c5f7a;
+  box-shadow: 0 8px 24px rgba(44, 95, 122, 0.08);
+}
+
+.transparency__icon {
+  width: 68px;
+  height: 68px;
+  margin: 0 auto 1.25rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2c5f7a, #1f4a5f);
+  color: #c9a24a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+}
+
+.transparency__title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.5rem;
+  color: #2c5f7a;
+  margin: 0 0 1rem;
+}
+
+.transparency__text {
+  color: #4a5b63;
+  font-size: 0.98rem;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.transparency__text strong {
+  color: #2c5f7a;
+}
+
+/* ===== Thank You CTA ===== */
+.donate-cta {
+  background: #fbfcfd;
+}
+
+.donate-cta__inner {
+  background: linear-gradient(135deg, #c9a24a, #b8892f);
+  color: #fff;
+  border-radius: 20px;
+  padding: 3.5rem 2rem;
+  text-align: center;
+  box-shadow: 0 12px 32px rgba(201, 162, 74, 0.25);
+}
+
+.donate-cta__title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  margin: 0 0 1rem;
+  color: #fff;
+}
+
+.donate-cta__verse {
+  font-style: italic;
+  font-size: 1rem;
+  color: #fdf6e3;
+  max-width: 620px;
+  margin: 0 auto 2rem;
+  line-height: 1.7;
+}
+
+.donate-cta__buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.donate-cta .btn--primary {
+  background: #fff;
+  color: #b8892f;
+}
+
+.donate-cta .btn--primary:hover {
+  background: #fff8e7;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.donate-cta .btn--outline-light {
+  border-color: #fff;
+  color: #fff;
+}
+
+.donate-cta .btn--outline-light:hover {
+  background: #fff;
+  color: #b8892f;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .sponsor__inner,
+  .give-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .give-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .sponsor__card {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .give-detail__value {
+    font-size: 1.15rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .sponsor__buttons,
+  .donate-cta__buttons {
+    flex-direction: column;
+  }
+
+  .sponsor__buttons .btn,
+  .donate-cta__buttons .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .give-card__badge {
+    right: 1rem;
+  }
+}
+
+.give-card__icon--logo {
+  background: #ffffff;
+  width: 110px;
+  height: 62px;
+  padding: 0.5rem 0.75rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 166, 81, 0.12);
+  border: 1px solid #e0f0e5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Prevents edge blur on retina */
+  overflow: hidden;
+}
+
+.give-card__logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  /* Ensures crisp rendering of the PNG */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+.give-card--primary {
+  border-top-color: #00A651;
+  background: #ffffff;  /* was gradient */
+}

@@ -9,9 +9,11 @@ import {
   FaLeaf,
   FaArrowRight,
 } from 'react-icons/fa';
-import hero1 from '../assets/images/hero1.png';
-import hero2 from '../assets/images/hero2.png';
-import hero3 from '../assets/images/hero3.png';
+import hero1 from '../assets/images/rehabhero3.jpeg';
+import hero2 from '../assets/images/rehabhero5.jpeg';
+import hero3 from '../assets/images/rehabhero4.jpeg';
+import hero4 from '../assets/images/hero3.png';
+import hero5 from '../assets/images/hero3.png';
 import directorImg from '../assets/images/director.jpeg';
 import './Home.css';
 

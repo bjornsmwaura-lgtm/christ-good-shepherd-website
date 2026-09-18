@@ -12,7 +12,7 @@ import {
 import aboutHero from '../assets/images/nature1.jpg';
 import leaderFr from '../assets/images/director.jpeg';
 import leaderJohn from '../assets/images/nature3.jpg';
-import facilityImg from '../assets/images/nature4.jpg';
+import facilityImg from '../assets/images/about.jpeg';
 import './About.css';
 
 function About() {
