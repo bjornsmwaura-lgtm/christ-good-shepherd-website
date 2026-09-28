@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import Testimonials from '../components/Testimonials';
 import {
   FaHandsHelping,
   FaBookOpen,
@@ -15,8 +16,6 @@ import {
 import hero1 from '../assets/images/rehabhero3.jpeg';
 import hero2 from '../assets/images/rehabhero5.jpeg';
 import hero3 from '../assets/images/rehabhero4.jpeg';
-import hero4 from '../assets/images/hero3.png';
-import hero5 from '../assets/images/hero3.png';
 import directorImg from '../assets/images/director.jpeg';
 import './Home.css';
 
@@ -84,6 +83,15 @@ function Home() {
 
   return (
     <div className="home">
+      {/* ===== SEO ===== */}
+      <Helmet>
+        <title>Christ the Good Shepherd Wellness Centre — Recovery in Dignity</title>
+        <meta
+          name="description"
+          content="A faith-based wellness and rehabilitation centre in Nyeri County, Kenya. Recovery in Dignity — offering holistic care, counselling, and hope to individuals and families."
+        />
+      </Helmet>
+
       {/* ===== HERO ===== */}
       <section className="hero">
         {/* Rotating background layers */}
@@ -96,14 +104,6 @@ function Home() {
             />
           ))}
         </div>
-      <Helmet>
-  <title>Christ the Good Shepherd Wellness Centre — Recovery in Dignity</title>
-  <meta
-    name="description"
-    content="A faith-based wellness and rehabilitation centre in Nyeri County, Kenya. Recovery in Dignity — offering holistic care, counselling, and hope to individuals and families."
-  />
-</Helmet>
-
 
         {/* Dark overlay for readability */}
         <div className="hero__overlay" />
@@ -146,120 +146,119 @@ function Home() {
       </section>
 
       {/* ===== DIRECTOR'S WELCOME ===== */}
-<section className="section director">
-  <div className="container">
-    <div className="director__grid">
-      {/* Photo */}
-      <div className="director__photo-wrap">
-        <div className="director__photo">
-          <img src={directorImg} alt="Rev. Fr. Stephen Gitonga" />
+      <section className="section director">
+        <div className="container">
+          <div className="director__grid">
+            {/* Photo */}
+            <div className="director__photo-wrap">
+              <div className="director__photo">
+                <img src={directorImg} alt="Rev. Fr. Stephen Gitonga" />
+              </div>
+              <div className="director__badge">
+                <span className="director__badge-icon">✝</span>
+                <span className="director__badge-text">
+                  Spiritual & Clinical Counsellor
+                </span>
+              </div>
+            </div>
+
+            {/* Message */}
+            <div className="director__message">
+              <span className="section__eyebrow">A Welcome Message from Our Director</span>
+              <h2 className="section__title">
+                "You are not alone on this journey."
+              </h2>
+              <p>
+                Welcome to Christ the Good Shepherd Wellness and Rehabilitation
+                Centre. Whether you are seeking help for yourself or for someone you
+                love, please know that you have come to a place of compassion,
+                dignity, and hope.
+              </p>
+              <p>
+                We believe that recovery is about more than simply stopping the use
+                of alcohol or drugs. It is about restoring the whole person — mind,
+                body, and spirit — and helping each individual rediscover their
+                God-given worth and purpose. That is why we say: <strong>Recovery in
+                Dignity.</strong>
+              </p>
+              <p>
+                Our doors are open. Our team is ready. And our prayer is that every
+                person who walks through them finds healing, restoration, and a
+                future worth living for.
+              </p>
+
+              <div className="director__signature">
+                <p className="director__name">Rev. Fr. Stephen Gitonga</p>
+                <p className="director__role">
+                  Director, Spiritual & Clinical Counsellor · Health Coordinator,
+                  Catholic Archdiocese of Nyeri
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="director__badge">
-          <span className="director__badge-icon">✝</span>
-          <span className="director__badge-text">
-            Spiritual & Clinical Counsellor
-          </span>
+      </section>
+
+      {/* ===== MOTTO BANNER ===== */}
+      <section className="motto-banner">
+        <div className="container">
+          <div className="motto-banner__inner">
+            <span className="motto-banner__eyebrow">Our Guiding Principle</span>
+            <p className="motto-banner__motto">"Recovery in Dignity"</p>
+            <p className="motto-banner__text">
+              Every person who comes to us deserves to be treated with compassion,
+              respect, and inherent worth — regardless of their past, their
+              struggles, or their circumstances. We walk with each individual on
+              their journey toward healing, wholeness, and a renewed life.
+            </p>
+          </div>
         </div>
-      </div>
+      </section>
 
-      {/* Message */}
-      <div className="director__message">
-        <span className="section__eyebrow">A Welcome Message from Our Director</span>
-        <h2 className="section__title">
-          "You are not alone on this journey."
-        </h2>
-        <p>
-          Welcome to Christ the Good Shepherd Wellness and Rehabilitation
-          Centre. Whether you are seeking help for yourself or for someone you
-          love, please know that you have come to a place of compassion,
-          dignity, and hope.
-        </p>
-        <p>
-          We believe that recovery is about more than simply stopping the use
-          of alcohol or drugs. It is about restoring the whole person mind,
-          body, and spirit and helping each individual rediscover their
-          God-given worth and purpose. That is why we say: <strong>Recovery in
-          Dignity.</strong>
-        </p>
-        <p>
-          Our doors are open. Our team is ready. And our prayer is that every
-          person who walks through them finds healing, restoration, and a
-          future worth living for.
-        </p>
+      {/* ===== FOLLOW US ON FACEBOOK ===== */}
+      <section className="section follow-us">
+        <div className="container">
+          <div className="follow-us__inner">
+            <div className="follow-us__content">
+              <span className="follow-us__eyebrow">
+                <FaFacebookF /> Stay Connected
+              </span>
+              <h2 className="follow-us__title">
+                Follow us on Facebook
+              </h2>
+              <p className="follow-us__text">
+                See updates, stories of hope, and moments from life at the Centre.
+                Follow us to stay connected with our mission and the lives being
+                transformed through Christ.
+              </p>
+              <div className="follow-us__buttons">
+                <a
+                  href="https://www.facebook.com/profile.php?id=100090375332812"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn follow-us__btn-fb"
+                >
+                  <FaFacebookF /> Follow Us on Facebook
+                </a>
+                <a
+                  href="https://wa.me/254791770653?text=Hello%20CGS%20Wellness%20Centre%2C%20I%20would%20like%20to%20make%20an%20inquiry."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn follow-us__btn-wa"
+                >
+                  <FaWhatsapp /> Chat on WhatsApp
+                </a>
+              </div>
+            </div>
 
-        <div className="director__signature">
-          <p className="director__name">Rev. Fr. Stephen Gitonga</p>
-          <p className="director__role">
-            Director, Spiritual & Clinical Counsellor. Health Coordinator,
-            Catholic Archdiocese of Nyeri
-          </p>
+            <div className="follow-us__visual">
+              <div className="follow-us__circle">
+                <FaFacebookF />
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-{/* ===== MOTTO BANNER ===== */}
-<section className="motto-banner">
-  <div className="container">
-    <div className="motto-banner__inner">
-      <span className="motto-banner__eyebrow">Our Guiding Principle</span>
-      <p className="motto-banner__motto">"Recovery in Dignity"</p>
-      <p className="motto-banner__text">
-        Every person who comes to us deserves to be treated with compassion,
-        respect, and inherent worth regardless of their past, their
-        struggles, or their circumstances. We walk with each individual on
-        their journey toward healing, wholeness, and a renewed life.
-      </p>
-    </div>
-  </div>
-</section>
-
-{/* ===== FOLLOW US ON FACEBOOK ===== */}
-<section className="section follow-us">
-  <div className="container">
-    <div className="follow-us__inner">
-      <div className="follow-us__content">
-        <span className="follow-us__eyebrow">
-          <FaFacebookF /> Stay Connected
-        </span>
-        <h2 className="follow-us__title">
-          Follow us on Facebook
-        </h2>
-        <p className="follow-us__text">
-          See updates, stories of hope, and moments from life at the Centre.
-          Follow us to stay connected with our mission and the lives being
-          transformed through Christ.
-        </p>
-        <div className="follow-us__buttons">
-          <a
-            href="https://www.facebook.com/profile.php?id=100090375332812"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn follow-us__btn-fb"
-          >
-            <FaFacebookF /> Follow Us on Facebook
-          </a>
-          <a
-            href="https://wa.me/254791770653?text=Hello%20CGS%20Wellness%20Centre%2C%20I%20would%20like%20to%20make%20an%20inquiry."
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn follow-us__btn-wa"
-          >
-            <FaWhatsapp /> Chat on WhatsApp
-          </a>
-        </div>
-      </div>
-
-      <div className="follow-us__visual">
-        <div className="follow-us__circle">
-          <FaFacebookF />
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
+      </section>
 
       {/* ===== MISSION / WELCOME ===== */}
       <section className="section welcome">
@@ -306,7 +305,7 @@ function Home() {
             <span className="section__eyebrow">What We Offer</span>
             <h2 className="section__title">Our Programs</h2>
             <p className="section__subtitle">
-              Every program is designed to meet people where they are and
+              Every program is designed to meet people where they are — and
               guide them toward lasting wholeness in Christ.
             </p>
           </div>
@@ -321,13 +320,16 @@ function Home() {
             ))}
           </div>
 
-          <div className="section__cta">
+          <div className="programs-preview__cta">
             <Link to="/programs" className="btn btn--primary">
               Explore All Programs <FaArrowRight />
             </Link>
           </div>
         </div>
       </section>
+
+      {/* ===== TESTIMONIALS ===== */}
+      <Testimonials />
 
       {/* ===== WHY CHOOSE US ===== */}
       <section className="section why-us">
@@ -379,7 +381,7 @@ function Home() {
           <div className="final-cta__inner">
             <h2 className="final-cta__title">Be Part of the Story</h2>
             <p className="final-cta__text">
-              Whether you need help or want to give it, there's a place for you here.
+              Whether you need help or want to give it — there's a place for you here.
             </p>
             <div className="final-cta__buttons">
               <Link to="/donate" className="btn btn--primary">
