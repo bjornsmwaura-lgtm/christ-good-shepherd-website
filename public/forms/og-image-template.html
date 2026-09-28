@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>OG Image — Christ the Good Shepherd Wellness Centre</title>
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    background: #e5e5e5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+
+  /* ============================================
+     THE CANVAS — 1200 × 630 (Open Graph standard)
+     ============================================ */
+  .og-canvas {
+    width: 1200px;
+    height: 630px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #1f4a5f 0%, #2c5f7a 45%, #3b7ea1 100%);
+    color: #ffffff;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+  }
+
+  /* Subtle radial glow behind the text */
+  .og-canvas::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    left: -100px;
+    width: 700px;
+    height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201, 162, 74, 0.18), transparent 70%);
+    pointer-events: none;
+  }
+
+  /* Decorative gold ring on the right */
+  .og-canvas::after {
+    content: '';
+    position: absolute;
+    bottom: -180px;
+    right: -120px;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    border: 3px solid rgba(201, 162, 74, 0.25);
+    pointer-events: none;
+  }
+
+  /* ===== Inner padding frame ===== */
+  .og-inner {
+    position: relative;
+    z-index: 2;
+    padding: 60px 80px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  /* ===== Top row — logo + name ===== */
+  .og-top {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+  }
+
+  .og-logo {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  .og-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 10px;
+  }
+
+  .og-brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+  }
+
+  .og-brand-title {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: #ffffff;
+  }
+
+  .og-brand-sub {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #c9a24a;
+    margin-top: 4px;
+  }
+
+  /* ===== Middle — main headline ===== */
+  .og-middle {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px 0;
+  }
+
+  .og-eyebrow {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #c9a24a;
+    margin-bottom: 20px;
+  }
+
+  .og-headline {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 68px;
+    font-weight: 700;
+    line-height: 1.1;
+    color: #ffffff;
+    margin-bottom: 22px;
+    letter-spacing: -0.01em;
+  }
+
+  .og-headline-accent {
+    color: #c9a24a;
+    font-style: italic;
+  }
+
+  .og-tagline {
+    font-size: 22px;
+    font-weight: 400;
+    color: #dbe8ef;
+    letter-spacing: 0.02em;
+    line-height: 1.5;
+    max-width: 900px;
+  }
+
+  /* ===== Bottom row — contact strip ===== */
+  .og-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 26px;
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+    font-size: 16px;
+    color: #c9dbe4;
+    letter-spacing: 0.03em;
+  }
+
+  .og-bottom-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .og-bottom-icon {
+    color: #c9a24a;
+    font-size: 18px;
+  }
+
+  .og-domain {
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 15px;
+    letter-spacing: 0.08em;
+  }
+
+  /* ===== Screen-only hint ===== */
+  .print-hint {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #c9a24a;
+    color: #ffffff;
+    padding: 14px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    z-index: 100;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 90%;
+  }
+
+  .print-hint strong {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+</style>
+</head>
+<body>
+
+  <div class="print-hint">
+    <strong>📸 Screenshot this image</strong>
+    Right-click the blue box → "Save image as..." or take a screenshot at exactly 1200×630px.
+    Save it as <code>og-image.jpg</code> in your <code>public/</code> folder.
+  </div>
+
+  <!-- ============ OG IMAGE CANVAS ============ -->
+  <div class="og-canvas" id="canvas">
+
+    <div class="og-inner">
+
+      <!-- TOP: Logo + name -->
+      <div class="og-top">
+        <div class="og-logo">
+          <img src="logo.jpg" alt="CGS Logo" />
+        </div>
+        <div class="og-brand-text">
+          <span class="og-brand-title">Christ the Good Shepherd</span>
+          <span class="og-brand-sub">Wellness &amp; Rehabilitation Centre</span>
+        </div>
+      </div>
+
+      <!-- MIDDLE: Headline + tagline -->
+      <div class="og-middle">
+        <div class="og-eyebrow">Nyeri County, Kenya</div>
+        <div class="og-headline">
+          Recovery in <span class="og-headline-accent">Dignity</span>
+        </div>
+        <div class="og-tagline">
+          A faith-based rehabilitation centre offering holistic care,
+          counselling, and hope to individuals and families.
+        </div>
+      </div>
+
+      <!-- BOTTOM: Contact strip -->
+      <div class="og-bottom">
+        <div class="og-bottom-item">
+          <span class="og-bottom-icon">📞</span>
+          <span>0791 770 653</span>
+        </div>
+        <div class="og-bottom-item">
+          <span class="og-bottom-icon">✉️</span>
+          <span>cgsrehab@gmail.com</span>
+        </div>
+        <div class="og-domain">
+          christgoodshepherdwellness.org
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>
