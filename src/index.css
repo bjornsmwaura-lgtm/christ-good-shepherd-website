@@ -143,3 +143,21 @@ img {
     font-size: 0.9rem;
   }
 }
+
+.section {
+  padding: 3.5rem 1.5rem;   /* was 5rem */
+}
+
+/* Tighter on tablet */
+@media (max-width: 900px) {
+  .section {
+    padding: 3rem 1.25rem;
+  }
+}
+
+/* Tightest on mobile */
+@media (max-width: 500px) {
+  .section {
+    padding: 2.5rem 1rem;
+  }
+}

@@ -77,7 +77,7 @@ function Home() {
     {
       icon: <FaLeaf />,
       title: 'Holistic Approach',
-      text: 'We care for the mind, body, and spirit — not just the symptoms.',
+      text: 'We care for the mind, body, and spirit and not just the symptoms.',
     },
   ];
 
@@ -88,7 +88,7 @@ function Home() {
         <title>Christ the Good Shepherd Wellness Centre — Recovery in Dignity</title>
         <meta
           name="description"
-          content="A faith-based wellness and rehabilitation centre in Nyeri County, Kenya. Recovery in Dignity — offering holistic care, counselling, and hope to individuals and families."
+          content="A faith-based wellness and rehabilitation centre in Nyeri County, Kenya. Recovery in Dignity offering holistic care, counselling, and hope to individuals and families."
         />
       </Helmet>
 
@@ -117,10 +117,10 @@ function Home() {
           </h1>
           <p className="hero__verse">
             "He makes me lie down in green pastures, He leads me beside quiet waters, He restores my soul."
-            <br />— Psalm 23:2–3
+            <br /> Psalm 23:2–3
           </p>
           <p className="hero__subtitle">
-            "Recovery in Dignity": Restoring hope. Renewing minds. Rebuilding lives through Christ.
+            Recovery in Dignity: Restoring hope. Renewing minds. Rebuilding lives through Christ.
           </p>
           <div className="hero__buttons">
             <Link to="/admissions" className="btn btn--primary">

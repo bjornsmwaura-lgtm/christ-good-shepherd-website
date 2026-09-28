@@ -90,6 +90,13 @@ function About() {
         </div>
       </section>
 
+      <Helmet>
+        <title>About Christ the Good Shepherd Wellness Centre</title>
+        <meta
+          name="description"
+          content="Learn about Christ the Good Shepherd Wellness and Rehabilitation Centre, a faith-based facility in Nyeri County, Kenya. Discover our mission, vision, core values, leadership, and journey of providing holistic care and rehabilitation services."
+        />
+      </Helmet>
       {/* ===== OUR STORY ===== */}
       <section className="section story">
         <div className="container">
