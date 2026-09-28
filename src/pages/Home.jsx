@@ -8,6 +8,8 @@ import {
   FaShieldAlt,
   FaLeaf,
   FaArrowRight,
+  FaFacebookF,
+  FaWhatsapp,
 } from 'react-icons/fa';
 import hero1 from '../assets/images/rehabhero3.jpeg';
 import hero2 from '../assets/images/rehabhero5.jpeg';
@@ -203,6 +205,52 @@ function Home() {
     </div>
   </div>
 </section>
+
+{/* ===== FOLLOW US ON FACEBOOK ===== */}
+<section className="section follow-us">
+  <div className="container">
+    <div className="follow-us__inner">
+      <div className="follow-us__content">
+        <span className="follow-us__eyebrow">
+          <FaFacebookF /> Stay Connected
+        </span>
+        <h2 className="follow-us__title">
+          Follow us on Facebook
+        </h2>
+        <p className="follow-us__text">
+          See updates, stories of hope, and moments from life at the Centre.
+          Follow us to stay connected with our mission and the lives being
+          transformed through Christ.
+        </p>
+        <div className="follow-us__buttons">
+          <a
+            href="https://www.facebook.com/profile.php?id=100090375332812"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn follow-us__btn-fb"
+          >
+            <FaFacebookF /> Follow Us on Facebook
+          </a>
+          <a
+            href="https://wa.me/254791770653?text=Hello%20CGS%20Wellness%20Centre%2C%20I%20would%20like%20to%20make%20an%20inquiry."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn follow-us__btn-wa"
+          >
+            <FaWhatsapp /> Chat on WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <div className="follow-us__visual">
+        <div className="follow-us__circle">
+          <FaFacebookF />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {/* ===== MISSION / WELCOME ===== */}
       <section className="section welcome">
