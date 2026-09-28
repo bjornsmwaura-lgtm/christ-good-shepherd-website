@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Disallow: /forms/admission-form.html
+Disallow: /forms/*.pdf
+
+Sitemap: https://christgoodshepherdwellness.org/sitemap.xml
