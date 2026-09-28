@@ -470,3 +470,31 @@ a.contact-card:hover {
     grid-template-columns: 1fr;
   }
 }
+
+.contact-card--phone {
+  border-top: 4px solid #2c5f7a;
+}
+
+.contact-card--whatsapp {
+  border-top: 4px solid #4a8a5c;
+}
+
+.contact-card--email {
+  border-top: 4px solid #c9a24a;
+}
+
+.contact-card--address {
+  border-top: 4px solid #6b7c85;
+}
+
+.contact-card--facebook {
+  border-top: 4px solid #1877F2;
+}
+
+.footer__social[aria-label*="Facebook"]:hover {
+  background-color: #1877F2;
+}
+
+.footer__social[aria-label*="WhatsApp"]:hover {
+  background-color: #25D366;
+}

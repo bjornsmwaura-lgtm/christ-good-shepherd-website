@@ -84,36 +84,28 @@ function Footer() {
           </ul>
 
           {/* Social Icons */}
-          <div className="footer__socials">
-            <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Facebook"
-              className="footer__social"
-            >
-              <FaFacebookF />
-            </a>
-            <a
-              href="https://wa.me/254791770653"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="WhatsApp"
-              className="footer__social"
-            >
-              <FaWhatsapp />
-            </a>
-            <a
-              href="https://youtube.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="YouTube"
-              className="footer__social"
-            >
-              <FaYoutube />
-            </a>
-          </div>
-        </div>
+         <div className="footer__socials">
+        <a
+          href="https://www.facebook.com/profile.php?id=100090375332812"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Visit our Facebook page"
+          title="Follow us on Facebook"
+          className="footer__social"
+        >
+          <FaFacebookF />
+        </a>
+        <a
+          href="https://wa.me/254791770653"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Chat with us on WhatsApp"
+          title="Chat with us on WhatsApp"
+          className="footer__social"
+        >
+          <FaWhatsapp />
+        </a>
+        {/* YouTube — hidden for now until we have a channel */}
       </div>
 
       {/* Bottom bar */}
@@ -124,6 +116,8 @@ function Footer() {
         <p className="footer__tagline">
           Designed and developed by Bjornsmwaura Productions
         </p>
+      </div>
+      </div>
       </div>
     </footer>
   );

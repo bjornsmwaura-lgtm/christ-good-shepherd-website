@@ -10,6 +10,7 @@ import {
   FaShieldAlt,
   FaArrowRight,
   FaDirections,
+  FaFacebookF,
 } from 'react-icons/fa';
 import './Contact.css';
 
@@ -111,6 +112,20 @@ function Contact() {
               <p className="contact-card__value">Chat with us</p>
               <span className="contact-card__action">Open WhatsApp →</span>
             </a>
+
+            <a
+  href="https://www.facebook.com/profile.php?id=100090375332812"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="contact-card contact-card--facebook"
+>
+  <div className="contact-card__icon">
+    <FaFacebookF />
+  </div>
+  <h3 className="contact-card__title">Facebook</h3>
+  <p className="contact-card__value">Follow our page</p>
+  <span className="contact-card__action">Visit Facebook →</span>
+</a>
 
             <a
               href="mailto:cgsrehab@gmail.com"
