@@ -13,6 +13,7 @@ import {
   FaDirections,
   FaFacebookF,
 } from 'react-icons/fa';
+import { sendEmail } from '../lib/emailjs';
 import './Contact.css';
 
 function Contact() {
@@ -25,16 +26,41 @@ function Contact() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Placeholder — later wire to EmailJS / Formspree
-    setSubmitted(true);
+    setLoading(true);
+    setError('');
+
+    try {
+      await sendEmail({
+        form_type: 'Contact Message',
+        from_name: formData.name,
+        from_email: formData.email,
+        from_phone: formData.phone,
+        reply_to: formData.email,
+        subject: `Subject: ${formData.subject}`,
+        area: '',
+        availability: '',
+        relationship: '',
+        message: formData.message,
+      });
+      setSubmitted(true);
+    } catch (err) {
+      console.error('Email send error:', err);
+      setError(
+        'Something went wrong. Please try again, or call us directly at 0791 770 653.'
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   const faqs = [
@@ -66,6 +92,14 @@ function Contact() {
 
   return (
     <div className="contact">
+      <Helmet>
+        <title>Contact Us · Christ the Good Shepherd Wellness Centre</title>
+        <meta
+          name="description"
+          content="Reach us by phone, WhatsApp, or email. Visit our Centre in Kiganjo, Nyeri County — approximately 6 km from Nyeri Town, next to Kamwenja Teachers College."
+        />
+      </Helmet>
+
       {/* ===== PAGE HERO ===== */}
       <section className="page-hero page-hero--contact">
         <div className="page-hero__overlay" />
@@ -74,18 +108,10 @@ function Contact() {
           <h1 className="page-hero__title">Get in Touch</h1>
           <p className="page-hero__subtitle">
             Whether you're seeking help, making a referral, or offering
-            support, we would be glad to hear from you.
+            support — we would be glad to hear from you.
           </p>
         </div>
       </section>
-
-      <Helmet>
-  <title>Contact Us · Christ the Good Shepherd Wellness Centre</title>
-  <meta
-    name="description"
-    content="Reach us by phone, WhatsApp, or email. Visit our Centre in Mathari area, Nyeri County approximately 6 km from Nyeri Town, next to Kamwenja Teachers College."
-  />
-</Helmet>
 
       {/* ===== CONTACT CARDS ===== */}
       <section className="section contact-cards-section">
@@ -104,12 +130,12 @@ function Contact() {
                 <FaPhone />
               </div>
               <h3 className="contact-card__title">Call Us</h3>
-              <p className="contact-card__value">+254 791 770 653</p>
+              <p className="contact-card__value">0791 770 653</p>
               <span className="contact-card__action">Tap to call →</span>
             </a>
 
             <a
-             href="https://wa.me/254791770653?text=Hello%20CGS%20Wellness%20Centre%2C%20I%20would%20like%20to%20get%20in%20touch."
+              href="https://wa.me/254791770653?text=Hello%20CGS%20Wellness%20Centre%2C%20I%20would%20like%20to%20get%20in%20touch."
               target="_blank"
               rel="noopener noreferrer"
               className="contact-card contact-card--whatsapp"
@@ -123,28 +149,28 @@ function Contact() {
             </a>
 
             <a
-  href="https://www.facebook.com/profile.php?id=100090375332812"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="contact-card contact-card--facebook"
->
-  <div className="contact-card__icon">
-    <FaFacebookF />
-  </div>
-  <h3 className="contact-card__title">Facebook</h3>
-  <p className="contact-card__value">Follow our page</p>
-  <span className="contact-card__action">Visit Facebook →</span>
-</a>
+              href="https://www.facebook.com/profile.php?id=100090375332812"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact-card contact-card--facebook"
+            >
+              <div className="contact-card__icon">
+                <FaFacebookF />
+              </div>
+              <h3 className="contact-card__title">Facebook</h3>
+              <p className="contact-card__value">Follow our page</p>
+              <span className="contact-card__action">Visit Facebook →</span>
+            </a>
 
             <a
-              href="mailto:cgsrehab@gmail.com"
+              href="mailto:info@christgoodshepherdwellness.org"
               className="contact-card contact-card--email"
             >
               <div className="contact-card__icon">
                 <FaEnvelope />
               </div>
               <h3 className="contact-card__title">Email</h3>
-              <p className="contact-card__value">cgsrehab@gmail.com</p>
+              <p className="contact-card__value">info@christgoodshepherdwellness.org</p>
               <span className="contact-card__action">Send an email →</span>
             </a>
 
@@ -186,7 +212,7 @@ function Contact() {
                     respond to you shortly.
                   </p>
                   <p className="contact-form__success-verse">
-                    "The Lord is near to all who call on Him." — Psalm 145:18 -
+                    "The Lord is near to all who call on Him." — Psalm 145:18
                   </p>
                   <button
                     className="btn btn--primary"
@@ -288,11 +314,14 @@ function Contact() {
                     message.
                   </p>
 
+                  {error && <p className="form-error">{error}</p>}
+
                   <button
                     type="submit"
                     className="btn btn--primary btn--full"
+                    disabled={loading}
                   >
-                    Send Message <FaArrowRight />
+                    {loading ? 'Sending...' : <>Send Message <FaArrowRight /></>}
                   </button>
                 </form>
               )}
@@ -331,11 +360,11 @@ function Contact() {
                   </li>
                   <li>
                     <span>Saturday</span>
-                    <span>Open</span>
+                    <span>9:00 AM – 1:00 PM</span>
                   </li>
                   <li>
                     <span>Sunday</span>
-                    <span>Open</span>
+                    <span>Closed</span>
                   </li>
                 </ul>
                 <p className="contact-info__muted">

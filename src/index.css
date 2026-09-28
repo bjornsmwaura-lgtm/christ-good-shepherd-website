@@ -161,3 +161,21 @@ img {
     padding: 2.5rem 1rem;
   }
 }
+
+/* ===== Form Error Message ===== */
+.form-error {
+  color: #c0392b;
+  background: #fdecea;
+  border-left: 4px solid #c0392b;
+  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  pointer-events: none;
+}
