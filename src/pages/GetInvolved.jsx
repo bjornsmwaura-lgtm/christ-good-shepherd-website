@@ -14,6 +14,7 @@ import {
   FaEnvelope,
   FaWhatsapp,
 } from 'react-icons/fa';
+import { sendEmail } from '../lib/emailjs';
 import './GetInvolved.css';
 
 function GetInvolved() {
@@ -28,31 +29,60 @@ function GetInvolved() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+
+  const { hash } = useLocation();
+
+  // Smooth-scroll to section when hash changes
+  useEffect(() => {
+    if (hash) {
+      const id = hash.replace('#', '');
+      const el = document.getElementById(id);
+      if (el) {
+        setTimeout(() => {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      }
+    }
+  }, [hash]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Placeholder — later wire to EmailJS / Formspree
-    setSubmitted(true);
-  };
+    setLoading(true);
+    setError('');
 
-  const { hash } = useLocation();
-
-useEffect(() => {
-  if (hash) {
-    const id = hash.replace('#', '');
-    const el = document.getElementById(id);
-    if (el) {
-      setTimeout(() => {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 100);
+    try {
+      await sendEmail({
+        form_type:
+          formData.type === 'volunteer'
+            ? 'Volunteer Application'
+            : 'Internship Application',
+        from_name: formData.name,
+        from_email: formData.email,
+        from_phone: formData.phone,
+        reply_to: formData.email,
+        subject: '',
+        area: `Area of Interest: ${formData.area}`,
+        availability: `Availability: ${formData.availability || 'Not specified'}`,
+        relationship: '',
+        message: formData.motivation,
+      });
+      setSubmitted(true);
+    } catch (err) {
+      console.error('Email send error:', err);
+      setError(
+        'Something went wrong. Please try again, or call us directly at 0791 770 653.'
+      );
+    } finally {
+      setLoading(false);
     }
-  }
-}, [hash]);
+  };
 
   // ===== Volunteer content =====
   const volunteerRoles = [
@@ -93,7 +123,7 @@ useEffect(() => {
     'Minimum age of 18 years',
     'A commitment of at least 4 hours per week for 3 months',
     'Respect for confidentiality and client privacy',
-    'Willingness to follow the Centre\'s code of conduct',
+    "Willingness to follow the Centre's code of conduct",
     'A pastoral reference or introduction from your church, where possible',
   ];
 
@@ -140,7 +170,7 @@ useEffect(() => {
   ];
 
   const internshipStructure = [
-    'Duration: typically 3 months (adjustable to your institution\'s requirements)',
+    "Duration: typically 3 months (adjustable to your institution's requirements)",
     'Supervised by a qualified professional in your field',
     'Weekly supervision and progress reviews',
     'Rotational exposure across departments',
@@ -154,11 +184,19 @@ useEffect(() => {
     'A formal letter of introduction from your institution',
     'Updated CV and cover letter',
     'Professional liability and personal accident insurance (where applicable)',
-    'Willingness to sign and uphold the Centre\'s confidentiality agreement',
+    "Willingness to sign and uphold the Centre's confidentiality agreement",
   ];
 
   return (
     <div className="get-involved">
+      <Helmet>
+        <title>Get Involved · Christ the Good Shepherd Wellness Centre</title>
+        <meta
+          name="description"
+          content="Volunteer or intern at Christ the Good Shepherd Wellness Centre. Make a difference in the lives of those in recovery through service and mentorship."
+        />
+      </Helmet>
+
       {/* ===== PAGE HERO ===== */}
       <section className="page-hero page-hero--get-involved">
         <div className="page-hero__overlay" />
@@ -172,14 +210,6 @@ useEffect(() => {
           </p>
         </div>
       </section>
-
-      <Helmet>
-  <title>Get Involved · Christ the Good Shepherd Wellness Centre</title>
-  <meta
-    name="description"
-    content="Volunteer or intern at Christ the Good Shepherd Wellness Centre. Make a difference in the lives of those in recovery through service and mentorship."
-  />
-</Helmet>
 
       {/* ===== INTRODUCTION ===== */}
       <section className="section gi-intro">
@@ -235,7 +265,7 @@ useEffect(() => {
             <span className="section__eyebrow">Volunteer</span>
             <h2 className="section__title">Give your time. Change a life.</h2>
             <p className="section__subtitle">
-              Volunteers are an essential part of our community, offering
+              Volunteers are an essential part of our community — offering
               presence, encouragement, skills, and hope to those in recovery.
             </p>
           </div>
@@ -295,7 +325,7 @@ useEffect(() => {
             <h2 className="section__title">Learn. Serve. Grow.</h2>
             <p className="section__subtitle">
               Our internship programme offers structured, supervised exposure
-              to holistic rehabilitation ideal for students and recent
+              to holistic rehabilitation — ideal for students and recent
               graduates preparing for professional practice.
             </p>
           </div>
@@ -384,13 +414,13 @@ useEffect(() => {
                 </a>
 
                 <a
-                  href="mailto:cgsrehab@gmail.com"
+                  href="mailto:info@christgoodshepherdwellness.org"
                   className="gi-form__contact-item"
                 >
                   <FaEnvelope className="gi-form__contact-icon" />
                   <div>
                     <strong>Email</strong>
-                    <span>cgsrehab@gmail.com</span>
+                    <span>info@christgoodshepherdwellness.org</span>
                   </div>
                 </a>
               </div>
@@ -539,8 +569,14 @@ useEffect(() => {
                     application.
                   </p>
 
-                  <button type="submit" className="btn btn--primary btn--full">
-                    Submit Application <FaArrowRight />
+                  {error && <p className="form-error">{error}</p>}
+
+                  <button
+                    type="submit"
+                    className="btn btn--primary btn--full"
+                    disabled={loading}
+                  >
+                    {loading ? 'Sending...' : <>Submit Application <FaArrowRight /></>}
                   </button>
                 </form>
               )}
