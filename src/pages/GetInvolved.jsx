@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import {
   FaHandsHelping,
   FaGraduationCap,
@@ -171,6 +172,14 @@ useEffect(() => {
           </p>
         </div>
       </section>
+
+      <Helmet>
+  <title>Get Involved · Christ the Good Shepherd Wellness Centre</title>
+  <meta
+    name="description"
+    content="Volunteer or intern at Christ the Good Shepherd Wellness Centre. Make a difference in the lives of those in recovery through service and mentorship."
+  />
+</Helmet>
 
       {/* ===== INTRODUCTION ===== */}
       <section className="section gi-intro">

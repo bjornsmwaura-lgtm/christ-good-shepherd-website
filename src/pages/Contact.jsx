@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import {
   FaPhone,
   FaWhatsapp,
@@ -77,6 +78,14 @@ function Contact() {
           </p>
         </div>
       </section>
+
+      <Helmet>
+  <title>Contact Us · Christ the Good Shepherd Wellness Centre</title>
+  <meta
+    name="description"
+    content="Reach us by phone, WhatsApp, or email. Visit our Centre in Mathari area, Nyeri County approximately 6 km from Nyeri Town, next to Kamwenja Teachers College."
+  />
+</Helmet>
 
       {/* ===== CONTACT CARDS ===== */}
       <section className="section contact-cards-section">

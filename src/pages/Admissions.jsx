@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import {
   FaPhone,
   FaWhatsapp,
@@ -117,6 +118,14 @@ function Admissions() {
           </p>
         </div>
       </section>
+
+      <Helmet>
+  <title>Admissions · Christ the Good Shepherd Wellness Centre</title>
+  <meta
+    name="description"
+    content="How to join our programme: admission requirements, the step-by-step process, cost, SHA coverage, and a downloadable admission form."
+  />
+</Helmet>
 
       {/* ===== WHO WE SERVE ===== */}
       <section className="section who-we-serve">

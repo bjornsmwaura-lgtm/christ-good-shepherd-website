@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { FaHome, FaPhone, FaArrowRight } from 'react-icons/fa';
+import { Helmet } from 'react-helmet-async';
 import './NotFound.css';
 
 function NotFound() {
@@ -15,6 +16,11 @@ function NotFound() {
         <p className="notfound__verse">
           "Your word is a lamp to my feet and a light to my path." — Psalm 119:105
         </p>
+
+        <Helmet>
+  <title>Page Not Found · Christ the Good Shepherd Wellness Centre</title>
+  <meta name="robots" content="noindex" />
+</Helmet>
         <div className="notfound__buttons">
           <Link to="/" className="btn btn--primary">
             <FaHome /> Back to Home

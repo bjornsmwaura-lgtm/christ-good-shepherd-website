@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import {
   FaHandsHelping,
   FaComments,
@@ -124,6 +125,13 @@ function Programs() {
         </div>
       </section>
 
+      <Helmet>
+  <title>Our Programmes · Christ the Good Shepherd Wellness Centre</title>
+  <meta
+    name="description"
+    content="Explore our residential rehabilitation programme:counselling, medical and psychiatric care, family therapy, spiritual support, recreation, and aftercare."
+  />
+</Helmet>
       {/* ===== INTRODUCTION ===== */}
       <section id="services" className="section intro">
         <div className="container">

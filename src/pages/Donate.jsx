@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import {
   FaMobileAlt,
   FaUniversity,
@@ -75,6 +76,14 @@ function Donate() {
           </p>
         </div>
       </section>
+
+      <Helmet>
+  <title>Donate · Christ the Good Shepherd Wellness Centre</title>
+  <meta
+    name="description"
+    content="Support our mission. Give via M-Pesa (Paybill 111999), sponsor a client, or donate goods. Every gift helps restore dignity and rebuild lives."
+  />
+</Helmet>
 
       {/* ===== WHY GIVE ===== */}
       <section className="section why-give">

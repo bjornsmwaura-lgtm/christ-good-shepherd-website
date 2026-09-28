@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import {
   FaHandsHelping,
   FaBookOpen,
@@ -95,6 +96,14 @@ function Home() {
             />
           ))}
         </div>
+      <Helmet>
+  <title>Christ the Good Shepherd Wellness Centre — Recovery in Dignity</title>
+  <meta
+    name="description"
+    content="A faith-based wellness and rehabilitation centre in Nyeri County, Kenya. Recovery in Dignity — offering holistic care, counselling, and hope to individuals and families."
+  />
+</Helmet>
+
 
         {/* Dark overlay for readability */}
         <div className="hero__overlay" />
