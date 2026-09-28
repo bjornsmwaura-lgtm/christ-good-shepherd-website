@@ -13,9 +13,11 @@ import {
   FaCalendarCheck,
   FaShieldAlt,
   FaArrowRight,
+  FaDownload,
+  FaFilePdf,
 } from 'react-icons/fa';
-import { FaDownload, FaFilePdf } from 'react-icons/fa';
-import admissionsHero from '../assets/images/admissions-hero.webp';
+import { sendEmail } from '../lib/emailjs';
+import admissionsHero from '../assets/images/rehabhero1.jpeg';
 import './Admissions.css';
 
 function Admissions() {
@@ -28,17 +30,41 @@ function Admissions() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // For now, we'll just show a success message.
-    // Later we can wire this to email (EmailJS, Formspree, etc.)
-    setSubmitted(true);
+    setLoading(true);
+    setError('');
+
+    try {
+      await sendEmail({
+        form_type: 'Admissions Inquiry',
+        from_name: formData.name,
+        from_email: formData.email || 'Not provided',
+        from_phone: formData.phone,
+        reply_to: formData.email || 'info@christgoodshepherdwellness.org',
+        subject: '',
+        area: '',
+        availability: '',
+        relationship: `Inquiry for: ${formData.relationship}`,
+        message: formData.message,
+      });
+      setSubmitted(true);
+    } catch (err) {
+      console.error('Email send error:', err);
+      setError(
+        'Something went wrong. Please try again, or call us directly at 0791 770 653.'
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   const whoWeServe = [
@@ -68,7 +94,7 @@ function Admissions() {
     {
       icon: <FaClipboardList />,
       title: '2. Initial Consultation',
-      text: 'We discuss the situation, answer your questions, and confirm whether our programme suits the client\'s needs.',
+      text: "We discuss the situation, answer your questions, and confirm whether our programme suits the client's needs.",
     },
     {
       icon: <FaUserMd />,
@@ -103,6 +129,14 @@ function Admissions() {
 
   return (
     <div className="admissions">
+      <Helmet>
+        <title>Admissions · Christ the Good Shepherd Wellness Centre</title>
+        <meta
+          name="description"
+          content="How to join our programme — admission requirements, the step-by-step process, cost, SHA coverage, and a downloadable admission form."
+        />
+      </Helmet>
+
       {/* ===== PAGE HERO ===== */}
       <section
         className="page-hero"
@@ -114,18 +148,66 @@ function Admissions() {
           <h1 className="page-hero__title">Begin the Journey</h1>
           <p className="page-hero__subtitle">
             Taking the first step is often the hardest. We are here to walk
-            with you with compassion, dignity, and hope.
+            with you — with compassion, dignity, and hope.
           </p>
         </div>
       </section>
 
-      <Helmet>
-  <title>Admissions · Christ the Good Shepherd Wellness Centre</title>
-  <meta
-    name="description"
-    content="How to join our programme: admission requirements, the step-by-step process, cost, SHA coverage, and a downloadable admission form."
-  />
-</Helmet>
+      {/* ===== DOWNLOADABLE FORM ===== */}
+      <section className="section download-form">
+        <div className="container">
+          <div className="download-form__inner">
+            <div className="download-form__content">
+              <span className="download-form__badge">📄 Ready to Download</span>
+              <h2 className="section__title">Admission & Referral Form</h2>
+              <p>
+                Download our admission and referral form to prepare ahead of
+                time. You can print it, fill it in, and bring it with you — or
+                email the completed form back to us before your visit.
+              </p>
+              <ul className="download-form__features">
+                <li>
+                  <FaCheck className="check-list__icon" />
+                  Suitable for self-referrals and professional referrals
+                </li>
+                <li>
+                  <FaCheck className="check-list__icon" />
+                  Includes medical and next-of-kin details
+                </li>
+                <li>
+                  <FaCheck className="check-list__icon" />
+                  Print and bring, or email back to info@christgoodshepherdwellness.org
+                </li>
+              </ul>
+              <div className="download-form__buttons">
+                <a
+                  href="/forms/admission-form.pdf"
+                  download="CGS-Admission-Form.pdf"
+                  className="btn btn--download"
+                >
+                  <FaDownload /> Download Admission Form (PDF)
+                </a>
+                <a
+                  href="mailto:info@christgoodshepherdwellness.org?subject=Admission%20Form%20Submission"
+                  className="btn btn--ghost"
+                >
+                  Email Completed Form <FaArrowRight />
+                </a>
+              </div>
+            </div>
+
+            <div className="download-form__preview">
+              <div className="download-form__preview-inner">
+                <div className="download-form__doc-icon">
+                  <FaFilePdf />
+                </div>
+                <span className="download-form__doc-label">Admission Form</span>
+                <span className="download-form__doc-meta">PDF · A4 · 1 page</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* ===== WHO WE SERVE ===== */}
       <section className="section who-we-serve">
@@ -187,7 +269,7 @@ function Admissions() {
                 ))}
               </ul>
               <p className="requirements__card-note">
-                Please don't worry if you're missing something. Our team
+                Please don't worry if you're missing something — our team
                 will guide you through the details during the admission
                 process.
               </p>
@@ -203,7 +285,7 @@ function Admissions() {
             <span className="section__eyebrow">Step by Step</span>
             <h2 className="section__title">The Admission Process</h2>
             <p className="section__subtitle">
-              From the first phone call to aftercare support, here is what
+              From the first phone call to aftercare support — here is what
               the journey looks like.
             </p>
           </div>
@@ -256,62 +338,6 @@ function Admissions() {
         </div>
       </section>
 
-      {/* ===== DOWNLOADABLE FORM ===== */}
-<section className="section download-form">
-  <div className="container">
-    <div className="download-form__inner">
-      <div className="download-form__content">
-        <span className="section__eyebrow">Download</span>
-        <h2 className="section__title">Admission & Referral Form</h2>
-        <p>
-          Download our admission and referral form to prepare ahead of time.
-          You can print it, fill it in, and bring it with you or email the
-          completed form back to us before your visit.
-        </p>
-        <ul className="download-form__features">
-          <li>
-            <FaCheck className="check-list__icon" />
-            Suitable for self-referrals and professional referrals
-          </li>
-          <li>
-            <FaCheck className="check-list__icon" />
-            Includes medical and next-of-kin details
-          </li>
-          <li>
-            <FaCheck className="check-list__icon" />
-            Print and bring, or email back to cgsrehab@gmail.com
-          </li>
-        </ul>
-        <div className="download-form__buttons">
-          <a
-            href="/forms/admission-form.pdf"
-            download="CGS-Admission-Form.pdf"
-            className="btn btn--primary"
-          >
-            <FaDownload /> Download Form (PDF)
-          </a>
-          <a
-            href="mailto:cgsrehab@gmail.com?subject=Admission%20Form%20Submission"
-            className="btn btn--ghost"
-          >
-            Email Completed Form <FaArrowRight />
-          </a>
-        </div>
-      </div>
-
-      <div className="download-form__preview">
-        <div className="download-form__preview-inner">
-          <div className="download-form__doc-icon">
-            <FaFilePdf />
-          </div>
-          <span className="download-form__doc-label">Admission Form</span>
-          <span className="download-form__doc-meta">PDF · A4 · 1 page</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
       {/* ===== INQUIRY FORM ===== */}
       <section className="section inquiry">
         <div className="container">
@@ -321,7 +347,7 @@ function Admissions() {
               <h2 className="section__title">Make an Inquiry</h2>
               <p>
                 Fill in the form and our team will reach out to you
-                confidentially. You can also call or WhatsApp us directly,
+                confidentially. You can also call or WhatsApp us directly —
                 whichever feels easier.
               </p>
 
@@ -330,7 +356,7 @@ function Admissions() {
                   <FaPhone className="inquiry__contact-icon" />
                   <div>
                     <strong>Call Us</strong>
-                    <span>+254 791 770 653</span>
+                    <span>0791 770 653</span>
                   </div>
                 </a>
 
@@ -348,13 +374,13 @@ function Admissions() {
                 </a>
 
                 <a
-                  href="mailto:cgsrehab@gmail.com"
+                  href="mailto:info@christgoodshepherdwellness.org"
                   className="inquiry__contact-item"
                 >
                   <FaEnvelope className="inquiry__contact-icon" />
                   <div>
                     <strong>Email</strong>
-                    <span>cgsrehab@gmail.com</span>
+                    <span>info@christgoodshepherdwellness.org</span>
                   </div>
                 </a>
               </div>
@@ -372,7 +398,7 @@ function Admissions() {
                     contact you confidentially and as soon as possible.
                   </p>
                   <p className="inquiry__success-verse">
-                    "The Lord is close to the brokenhearted." — Psalm 34:18 -
+                    "The Lord is close to the brokenhearted." — Psalm 34:18
                   </p>
                   <button
                     className="btn btn--primary"
@@ -473,8 +499,14 @@ function Admissions() {
                     inquiry.
                   </p>
 
-                  <button type="submit" className="btn btn--primary btn--full">
-                    Send Inquiry <FaArrowRight />
+                  {error && <p className="form-error">{error}</p>}
+
+                  <button
+                    type="submit"
+                    className="btn btn--primary btn--full"
+                    disabled={loading}
+                  >
+                    {loading ? 'Sending...' : <>Send Inquiry <FaArrowRight /></>}
                   </button>
                 </form>
               )}
@@ -496,7 +528,7 @@ function Admissions() {
             </p>
             <div className="admissions-cta__buttons">
               <a href="tel:+254791770653" className="btn btn--primary">
-                <FaPhone /> Call +254 791 770 653
+                <FaPhone /> Call 0791 770 653
               </a>
               <Link to="/programs" className="btn btn--outline-light">
                 View Our Programmes
