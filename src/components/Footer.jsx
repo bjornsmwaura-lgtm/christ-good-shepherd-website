@@ -96,12 +96,12 @@ function Footer() {
           <FaFacebookF />
         </a>
         <a
-          href="https://wa.me/254791770653"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Chat with us on WhatsApp"
-          title="Chat with us on WhatsApp"
-          className="footer__social"
+          href="https://wa.me/254791770653?text=Hello%20CGS%20Wellness%20Centre%2C%20I%20would%20like%20to%20make%20an%20inquiry."
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Chat with us on WhatsApp"
+  title="Chat with us on WhatsApp"
+  className="footer__social"
         >
           <FaWhatsapp />
         </a>

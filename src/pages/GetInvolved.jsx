@@ -362,7 +362,7 @@ useEffect(() => {
                 </a>
 
                 <a
-                  href="https://wa.me/254791770653"
+                  href="https://wa.me/254791770653?text=Hello%20CGS%20Wellness%20Centre%2C%20I%20am%20interested%20in%20volunteering%20or%20interning%20with%20you."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="gi-form__contact-item"

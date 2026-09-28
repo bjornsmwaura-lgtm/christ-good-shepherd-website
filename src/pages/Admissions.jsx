@@ -326,7 +326,7 @@ function Admissions() {
                 </a>
 
                 <a
-                  href="https://wa.me/254791770653"
+                  href="https://wa.me/254791770653?text=Hello%20CGS%20Wellness%20Centre%2C%20I%20would%20like%20to%20inquire%20about%20admissions."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inquiry__contact-item"
