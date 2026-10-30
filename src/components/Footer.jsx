@@ -6,7 +6,6 @@ import {
   FaMapMarkerAlt,
   FaFacebookF,
   FaWhatsapp,
-  FaYoutube,
 } from 'react-icons/fa';
 import './Footer.css';
 
@@ -43,6 +42,7 @@ function Footer() {
             <li><Link to="/programs" className="footer__link">Programs</Link></li>
             <li><Link to="/admissions" className="footer__link">Admissions</Link></li>
            <li><Link to="/get-involved" className="footer__link">Get Involved</Link></li>
+           <li><Link to="/gallery" className="footer__link">Gallery</Link></li>
             <li><Link to="/donate" className="footer__link">Donate</Link></li>
           </ul>
         </div>
@@ -71,8 +71,8 @@ function Footer() {
             </li>
             <li>
               <FaEnvelope className="footer__icon" />
-              <a href="mailto:cgsrehab@gmail.com" className="footer__link">
-                cgsrehab@gmail.com
+              <a href="mailto:info@christgoodshepherdwellness.org" className="footer__link">
+                info@christgoodshepherdwellness.org
               </a>
             </li>
             <li>

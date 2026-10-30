@@ -12,7 +12,7 @@ import {
 } from 'react-icons/fa';
 import aboutHero from '../assets/images/nature1.jpg';
 import leaderFr from '../assets/images/director.jpeg';
-import leaderJohn from '../assets/images/nature3.jpg';
+import leaderJohn from '../assets/images/john.jpeg';
 import facilityImg from '../assets/images/about.jpeg';
 import './About.css';
 

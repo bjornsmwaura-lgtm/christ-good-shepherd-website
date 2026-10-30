@@ -8,14 +8,18 @@ function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [programsOpen, setProgramsOpen] = useState(false);
   const [involvedOpen, setInvolvedOpen] = useState(false);
+  const [exploreOpen, setExploreOpen] = useState(false);
+  
   const programsRef = useRef(null);
   const involvedRef = useRef(null);
+  const exploreRef = useRef(null);
   const location = useLocation();
 
   const closeAllMenus = () => {
     setMenuOpen(false);
     setProgramsOpen(false);
     setInvolvedOpen(false);
+    setExploreOpen(false);
   };
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
@@ -24,23 +28,29 @@ function Navbar() {
     e.preventDefault();
     setProgramsOpen(!programsOpen);
     setInvolvedOpen(false);
+    setExploreOpen(false);
   };
 
   const toggleInvolved = (e) => {
     e.preventDefault();
     setInvolvedOpen(!involvedOpen);
     setProgramsOpen(false);
+    setExploreOpen(false);
+  };
+
+  const toggleExplore = (e) => {
+    e.preventDefault();
+    setExploreOpen(!exploreOpen);
+    setProgramsOpen(false);
+    setInvolvedOpen(false);
   };
 
   // Close dropdowns when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (programsRef.current && !programsRef.current.contains(event.target)) {
-        setProgramsOpen(false);
-      }
-      if (involvedRef.current && !involvedRef.current.contains(event.target)) {
-        setInvolvedOpen(false);
-      }
+      if (programsRef.current && !programsRef.current.contains(event.target)) setProgramsOpen(false);
+      if (involvedRef.current && !involvedRef.current.contains(event.target)) setInvolvedOpen(false);
+      if (exploreRef.current && !exploreRef.current.contains(event.target)) setExploreOpen(false);
     };
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
@@ -66,6 +76,9 @@ function Navbar() {
     { hash: 'volunteer', label: 'Volunteer' },
     { hash: 'internship', label: 'Internship' },
   ];
+
+  // Helper to check if any of the explore links are active
+  const isExploreActive = ['/about', '/gallery', '/contact'].includes(location.pathname);
 
   return (
     <header className="navbar">
@@ -100,33 +113,15 @@ function Navbar() {
             <li className="navbar__item">
               <NavLink
                 to="/"
-                className={({ isActive }) =>
-                  `navbar__link ${isActive ? 'navbar__link--active' : ''}`
-                }
+                className={({ isActive }) => `navbar__link ${isActive ? 'navbar__link--active' : ''}`}
                 onClick={closeAllMenus}
               >
                 Home
               </NavLink>
             </li>
 
-            {/* About */}
-            <li className="navbar__item">
-              <NavLink
-                to="/about"
-                className={({ isActive }) =>
-                  `navbar__link ${isActive ? 'navbar__link--active' : ''}`
-                }
-                onClick={closeAllMenus}
-              >
-                About Us
-              </NavLink>
-            </li>
-
             {/* Programs dropdown */}
-            <li
-              className="navbar__item navbar__item--has-dropdown"
-              ref={programsRef}
-            >
+            <li className="navbar__item navbar__item--has-dropdown" ref={programsRef}>
               <button
                 className={`navbar__link navbar__link--dropdown ${
                   location.pathname === '/programs' ? 'navbar__link--active' : ''
@@ -135,34 +130,18 @@ function Navbar() {
                 aria-expanded={programsOpen}
               >
                 Programs
-                <FaChevronDown
-                  className={`navbar__chevron ${
-                    programsOpen ? 'navbar__chevron--open' : ''
-                  }`}
-                />
+                <FaChevronDown className={`navbar__chevron ${programsOpen ? 'navbar__chevron--open' : ''}`} />
               </button>
 
-              <ul
-                className={`navbar__dropdown ${
-                  programsOpen ? 'navbar__dropdown--open' : ''
-                }`}
-              >
+              <ul className={`navbar__dropdown ${programsOpen ? 'navbar__dropdown--open' : ''}`}>
                 <li>
-                  <Link
-                    to="/programs"
-                    className="navbar__dropdown-link navbar__dropdown-link--all"
-                    onClick={closeAllMenus}
-                  >
+                  <Link to="/programs" className="navbar__dropdown-link navbar__dropdown-link--all" onClick={closeAllMenus}>
                     All Programmes
                   </Link>
                 </li>
                 {programLinks.map((program) => (
                   <li key={program.hash}>
-                    <Link
-                      to={`/programs#${program.hash}`}
-                      className="navbar__dropdown-link"
-                      onClick={closeAllMenus}
-                    >
+                    <Link to={`/programs#${program.hash}`} className="navbar__dropdown-link" onClick={closeAllMenus}>
                       {program.label}
                     </Link>
                   </li>
@@ -174,9 +153,7 @@ function Navbar() {
             <li className="navbar__item">
               <NavLink
                 to="/admissions"
-                className={({ isActive }) =>
-                  `navbar__link ${isActive ? 'navbar__link--active' : ''}`
-                }
+                className={({ isActive }) => `navbar__link ${isActive ? 'navbar__link--active' : ''}`}
                 onClick={closeAllMenus}
               >
                 Admissions
@@ -184,39 +161,24 @@ function Navbar() {
             </li>
 
             {/* Get Involved dropdown */}
-            <li
-              className="navbar__item navbar__item--has-dropdown"
-              ref={involvedRef}
-            >
+            <li className="navbar__item navbar__item--has-dropdown" ref={involvedRef}>
               <button
                 className={`navbar__link navbar__link--dropdown ${
-                  location.pathname === '/get-involved'
-                    ? 'navbar__link--active'
-                    : ''
+                  location.pathname === '/get-involved' ? 'navbar__link--active' : ''
                 }`}
                 onClick={toggleInvolved}
                 aria-expanded={involvedOpen}
               >
                 Get Involved
-                <FaChevronDown
-                  className={`navbar__chevron ${
-                    involvedOpen ? 'navbar__chevron--open' : ''
-                  }`}
-                />
+                <FaChevronDown className={`navbar__chevron ${involvedOpen ? 'navbar__chevron--open' : ''}`} />
               </button>
 
-              <ul
-                className={`navbar__dropdown ${
-                  involvedOpen ? 'navbar__dropdown--open' : ''
-                }`}
-              >
+              <ul className={`navbar__dropdown ${involvedOpen ? 'navbar__dropdown--open' : ''}`}>
                 {involvedLinks.map((link) => (
                   <li key={link.hash || 'overview'}>
                     <Link
                       to={`/get-involved${link.hash ? `#${link.hash}` : ''}`}
-                      className={`navbar__dropdown-link ${
-                        link.hash === '' ? 'navbar__dropdown-link--all' : ''
-                      }`}
+                      className={`navbar__dropdown-link ${link.hash === '' ? 'navbar__dropdown-link--all' : ''}`}
                       onClick={closeAllMenus}
                     >
                       {link.label}
@@ -226,17 +188,36 @@ function Navbar() {
               </ul>
             </li>
 
-            {/* Contact */}
-            <li className="navbar__item">
-              <NavLink
-                to="/contact"
-                className={({ isActive }) =>
-                  `navbar__link ${isActive ? 'navbar__link--active' : ''}`
-                }
-                onClick={closeAllMenus}
+            {/* Explore dropdown (About, Gallery, Contact) */}
+            <li className="navbar__item navbar__item--has-dropdown" ref={exploreRef}>
+              <button
+                className={`navbar__link navbar__link--dropdown ${
+                  isExploreActive ? 'navbar__link--active' : ''
+                }`}
+                onClick={toggleExplore}
+                aria-expanded={exploreOpen}
               >
-                Contact
-              </NavLink>
+                Explore
+                <FaChevronDown className={`navbar__chevron ${exploreOpen ? 'navbar__chevron--open' : ''}`} />
+              </button>
+
+              <ul className={`navbar__dropdown ${exploreOpen ? 'navbar__dropdown--open' : ''}`}>
+                <li>
+                  <Link to="/about" className="navbar__dropdown-link" onClick={closeAllMenus}>
+                    About Us
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/gallery" className="navbar__dropdown-link" onClick={closeAllMenus}>
+                    Gallery
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/contact" className="navbar__dropdown-link" onClick={closeAllMenus}>
+                    Contact Us
+                  </Link>
+                </li>
+              </ul>
             </li>
 
             {/* Donate */}

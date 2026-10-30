@@ -416,3 +416,86 @@
     right: 1.25rem;
   }
 }
+
+/* ===== Grouped Gallery Layout ===== */
+.gallery-group {
+  margin-bottom: 4rem;
+}
+
+.gallery-group:last-child {
+  margin-bottom: 0;
+}
+
+.gallery-group__header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #eef6fa;
+}
+
+.gallery-group__icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2c5f7a, #1f4a5f);
+  color: #c9a24a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.gallery-group__title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.5rem;
+  color: #2c5f7a;
+  margin: 0 0 0.25rem;
+}
+
+.gallery-group__desc {
+  color: #6b7c85;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* Adjust grid to be exactly 4 columns on large screens */
+.gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+/* New color for Occupational Therapy placeholders */
+.gallery__tile-placeholder--occupational {
+  background: linear-gradient(135deg, #8f6a1f, #6b4e15);
+}
+.lightbox__placeholder--occupational {
+  background: linear-gradient(135deg, #8f6a1f, #6b4e15);
+}
+
+/* Responsive adjustments for the 4-column grid */
+@media (max-width: 1100px) {
+  .gallery__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 800px) {
+  .gallery__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .gallery-group__header {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .gallery__grid {
+    grid-template-columns: 1fr;
+  }
+}
