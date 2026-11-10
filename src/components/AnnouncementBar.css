@@ -1,0 +1,99 @@
+.announcement-bar {
+  /* Change background to a solid color so the pulse animation works smoothly */
+  background-color: #b8892f; 
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1rem;
+  position: relative;
+  z-index: 1001;
+  /* Add the background pulse */
+  animation: bgPulse 2.5s infinite;
+}
+
+/* The background pulse animation */
+@keyframes bgPulse {
+  0% { background-color: #b8892f; box-shadow: inset 0 0 0 rgba(201, 162, 74, 0); }
+  50% { background-color: #e5b54b; box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.2); }
+  100% { background-color: #b8892f; box-shadow: inset 0 0 0 rgba(201, 162, 74, 0); }
+}
+
+.announcement-bar__content {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 0.9rem;
+}
+
+.announcement-bar__icon {
+  font-size: 1.1rem;
+  /* Keep the icon pulsing too for extra attention */
+  animation: iconPulse 1.5s infinite;
+}
+
+@keyframes iconPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.announcement-bar__text {
+  letter-spacing: 0.02em;
+}
+
+.announcement-bar__link {
+  background: #ffffff;
+  color: #b8892f;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+  margin-left: 0.5rem;
+}
+
+.announcement-bar__link:hover {
+  background: #2c5f7a;
+  color: #ffffff;
+}
+
+.announcement-bar__close {
+  position: absolute;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 1rem;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+  padding: 0.5rem;
+}
+
+.announcement-bar__close:hover {
+  opacity: 1;
+}
+
+@media (max-width: 700px) {
+  .announcement-bar {
+    padding: 0.75rem 2.5rem 0.75rem 1rem;
+  }
+  .announcement-bar__content {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+    font-size: 0.85rem;
+  }
+  .announcement-bar__link {
+    margin-left: 0;
+    margin-top: 0.25rem;
+  }
+  .announcement-bar__close {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}

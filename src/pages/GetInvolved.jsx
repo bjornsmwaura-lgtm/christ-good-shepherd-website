@@ -186,6 +186,7 @@ function GetInvolved() {
     'Professional liability and personal accident insurance (where applicable)',
     "Willingness to sign and uphold the Centre's confidentiality agreement",
   ];
+  
 
   return (
     <div className="get-involved">
@@ -376,6 +377,75 @@ function GetInvolved() {
           </div>
         </div>
       </section>
+
+      {/* ===== CAREERS / JOBS ===== */}
+      <section id="careers" className="section careers" style={{ background: '#fbfcfd' }}>
+        <div className="container">
+          <div className="section__header">
+            <span className="section__eyebrow">Careers</span>
+            <h2 className="section__title">Join our Clinical Team</h2>
+            <p className="section__subtitle">
+              We are currently hiring dedicated professionals to support our
+              growing multidisciplinary team.
+            </p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+            
+            {/* Job 1: General Nurse */}
+            <div className="gi-card" style={{ borderTop: '4px solid #2c5f7a', padding: '2.5rem', background: '#fff' }}>
+              <h3 className="gi-card__title" style={{ fontSize: '1.4rem', color: '#2c5f7a', marginBottom: '1rem' }}>General Nurse</h3>
+              <p className="gi-card__text" style={{ marginBottom: '1rem', color: '#6b7c85' }}>
+                Provide general nursing care, health screening, medication administration, and primary health support to clients undergoing rehabilitation.
+              </p>
+              <ul className="check-list" style={{ marginBottom: '1.5rem' }}>
+                <li><FaCheckCircle className="check-list__icon" /> Diploma in Nursing & valid license</li>
+                <li><FaCheckCircle className="check-list__icon" /> 2+ years nursing experience</li>
+                <li><FaCheckCircle className="check-list__icon" /> Fixed Term Contract (2 years)</li>
+              </ul>
+              <a 
+                href="https://pems.adnyeri.org/jobs/01M6ZFY70JZV1AHYEWWXHNXR3T?embed=1" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="btn btn--primary"
+                style={{ width: '100%', justifyContent: 'center' }}
+              >
+                View & Apply <FaArrowRight />
+              </a>
+              <p style={{ textAlign: 'center', marginTop: '1rem', fontSize: '0.85rem', color: '#c0392b', fontWeight: 'bold' }}>
+                Apply by Nov 20, 2026
+              </p>
+            </div>
+
+            {/* Job 2: Psychiatric Nurse */}
+            <div className="gi-card" style={{ borderTop: '4px solid #c9a24a', padding: '2.5rem', background: '#fff' }}>
+              <h3 className="gi-card__title" style={{ fontSize: '1.4rem', color: '#2c5f7a', marginBottom: '1rem' }}>Psychiatric Nurse</h3>
+              <p className="gi-card__text" style={{ marginBottom: '1rem', color: '#6b7c85' }}>
+                Provide specialized psychiatric nursing care, mental health assessment, medication management, and crisis management for clients with substance use disorders.
+              </p>
+              <ul className="check-list" style={{ marginBottom: '1.5rem' }}>
+                <li><FaCheckCircle className="check-list__icon" /> Diploma in Nursing (Psychiatric specialty)</li>
+                <li><FaCheckCircle className="check-list__icon" /> 2+ years psychiatric nursing experience</li>
+                <li><FaCheckCircle className="check-list__icon" /> Fixed Term Contract (2 years)</li>
+              </ul>
+              <a 
+                href="https://pems.adnyeri.org/jobs/01M6ZE4XJSADQS21344FZZZ17P?embed=1" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="btn btn--primary"
+                style={{ width: '100%', justifyContent: 'center' }}
+              >
+                View & Apply <FaArrowRight />
+              </a>
+              <p style={{ textAlign: 'center', marginTop: '1rem', fontSize: '0.85rem', color: '#c0392b', fontWeight: 'bold' }}>
+                Apply by Nov 20, 2026
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
 
       {/* ===== APPLICATION FORM ===== */}
       <section id="apply" className="section gi-form-section">

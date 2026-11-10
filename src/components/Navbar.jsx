@@ -75,6 +75,7 @@ function Navbar() {
     { hash: '', label: 'Overview' },
     { hash: 'volunteer', label: 'Volunteer' },
     { hash: 'internship', label: 'Internship' },
+    { hash: 'careers', label: 'Careers (Jobs)' },
   ];
 
   // Helper to check if any of the explore links are active

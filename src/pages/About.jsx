@@ -252,7 +252,7 @@ function About() {
               </div>
               <h3 className="leader-card__name">John M. Marangu</h3>
               <p className="leader-card__role">
-                Clinical Psychologist · Chairman, KCPA Nyeri County
+                Clinical Psychologist · Centre Manager
               </p>
               <p className="leader-card__bio">
                 John leads a multidisciplinary team dedicated to ensuring every

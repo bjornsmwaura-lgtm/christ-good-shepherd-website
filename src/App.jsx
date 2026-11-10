@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
+import AnnouncementBar from './components/AnnouncementBar'; // Import is already here
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -13,12 +14,15 @@ import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
 import ScrollToTopButton from './components/ScrollToTopButton';
 
-
 function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
       <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+        
+        {/* ADD THIS LINE RIGHT HERE */}
+        <AnnouncementBar /> 
+        
         <Navbar />
         <main style={{ flex: 1 }}>
           <Routes>
