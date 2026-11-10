@@ -442,6 +442,31 @@ function GetInvolved() {
               </p>
             </div>
 
+            {/* Job 3: IT Assistant */}
+            <div className="gi-card" style={{ borderTop: '4px solid #4a8a5c', padding: '2.5rem', background: '#fff' }}>
+              <h3 className="gi-card__title" style={{ fontSize: '1.4rem', color: '#2c5f7a', marginBottom: '1rem' }}>IT Assistant</h3>
+              <p className="gi-card__text" style={{ marginBottom: '1rem', color: '#6b7c85' }}>
+                Provide day-to-day ICT support, manage Health Management Information Systems (HMIS), and ensure data security and backups across the Centre.
+              </p>
+              <ul className="check-list" style={{ marginBottom: '1.5rem' }}>
+                <li><FaCheckCircle className="check-list__icon" /> Diploma in IT or Computer Science</li>
+                <li><FaCheckCircle className="check-list__icon" /> 2+ years IT support experience</li>
+                <li><FaCheckCircle className="check-list__icon" /> Knowledge of Data Protection Act</li>
+              </ul>
+              <a 
+                href="https://pems.adnyeri.org/jobs/01M6ZGV8DPFCWHKBSQACWZWPQB?embed=1" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="btn btn--primary"
+                style={{ width: '100%', justifyContent: 'center' }}
+              >
+                View & Apply <FaArrowRight />
+              </a>
+              <p style={{ textAlign: 'center', marginTop: '1rem', fontSize: '0.85rem', color: '#c0392b', fontWeight: 'bold' }}>
+                Apply by Nov 20, 2026
+              </p>
+            </div>
+
           </div>
         </div>
       </section>
