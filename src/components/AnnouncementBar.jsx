@@ -13,7 +13,7 @@ function AnnouncementBar() {
       <div className="announcement-bar__content">
         <FaBullhorn className="announcement-bar__icon" />
         <span className="announcement-bar__text">
-          <strong>We're Hiring!</strong> General Nurse & Psychiatric Nurse positions available.
+          <strong>We're Hiring!</strong> Join our clinical and IT teams.
         </span>
         <Link to="/get-involved#careers" className="announcement-bar__link">
           View Details & Apply
